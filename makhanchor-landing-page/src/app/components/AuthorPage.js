@@ -169,7 +169,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
 const BookMockup = () => {
     return (
         <div className="relative w-full max-w-sm mx-auto perspective-1000">
-           <Image src={bookMockup} alt="Love, Loss, and Life Book Cover" width={300} height={400} className="w-full h-auto rounded-2xl shadow-2xl transform hover:rotate-y-6 hover:scale-105 transition-transform duration-500" />
+            <Image src={bookMockup} alt="Love, Loss, and Life Book Cover" width={300} height={400} className="w-full h-auto rounded-2xl shadow-2xl transform hover:rotate-y-6 hover:scale-105 transition-transform duration-500" />
         </div>
     );
 };
@@ -181,15 +181,15 @@ export default function AuthorPage() {
     const faqs = [
         {
             question: "What is 'Love, Loss, and Life' about?",
-            answer: "This poetry collection explores the depths of human emotion through three interconnected themes: the intoxication of love, the weight of loss, and the resilience found in living fully. Each poem is a window into the raw, unfiltered experience of being human."
+            answer: "A book focused on love, loss, and life weaves a poignant narrative that explores human emotions. It delves into romantic connections, the heartache of parting, and the resilience needed to navigate existence. Through vivid storytelling, readers experience the joy of new love, the sorrow of loss, and the hope life offers. Characters undergo transformative journeys that challenge their perceptions and foster growth, highlighting the beauty and fragility of life. This exploration of universal themes invites readers to reflect on their own experiences."
         },
         {
             question: "Who is this book for?",
             answer: "This book is for anyone who has loved deeply, experienced loss, or is on a journey of self-discovery. Whether you're navigating a relationship, healing from heartbreak, or seeking motivation, these poems offer companionship and understanding."
         },
         {
-            question: "What makes this poetry collection unique?",
-            answer: "Written by Makhanchor (Yogesh Bhavsar), this collection blends contemporary style with timeless emotions. The poems are raw, relatable, and crafted to resonate with modern readers who seek authenticity in art."
+            question: "What makes this novel unique?",
+            answer: "Written by Makhanchor (Yogesh Bhavsar), this book blends contemporary style with timeless emotions. The poems are raw, relatable, and crafted to resonate with modern readers who seek authenticity in art."
         },
         {
             question: "Which platform should I buy from?",
@@ -205,7 +205,37 @@ export default function AuthorPage() {
         },
         {
             question: "Is this book available internationally?",
-            answer: "Yes! The book is available through Amazon for international shipping. NotionPress primarily serves Indian readers with the most competitive pricing and direct author support."
+            answer: (
+                <>
+                    Yes! The book is available for international shipping.<br />
+                    <strong>Order from:</strong>
+                    <span className="list-disc list-inside mt-2">
+                        <li>
+                            <a
+                                href="https://a.co/d/hhwzXlh"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-purple-300 underline hover:text-pink-300"
+                            >
+                                Amazon.com (Worldwide)
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="https://www.barnesandnoble.com/w/love-loss-and-life-yogesh-bhavsar/1147025903"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-purple-300 underline hover:text-pink-300"
+                            >
+                                Barnes &amp; Noble (US/International)
+                            </a>
+                        </li>
+                    </span>
+                    <span className="block mt-2">
+                        Also Check options on NotionPress Website for India and other countries.
+                    </span>
+                </>
+            )
         }
     ];
 
@@ -231,7 +261,7 @@ export default function AuthorPage() {
                                     <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">and Life</span>
                                 </h1>
                                 <p className="text-lg sm:text-xl text-slate-200 font-light leading-relaxed">
-                                    A transformative poetry collection exploring romance, healing, and self-discovery through 100+ powerful verses
+                                "Love, Loss, and Life" - A deeply moving story of love, heartbreak, and the quiet strength it takes to live on.
                                 </p>
                             </div>
 
@@ -247,10 +277,10 @@ export default function AuthorPage() {
                                             icon={Award}
                                             href="https://notionpress.com/in/read/love-loss-and-life"
                                             price="₹175"
-                                            originalPrice="₹199"
-                                            benefit="✓ Best Price • Direct Support"
+                                            originalPrice="₹299"
+                                            benefit="✓ Best Price • Delivery included"
                                             couponCode="LOVELOSS175"
-                                            discount={12}
+                                            discount={42}
                                             featured={true}
                                         >
                                             NotionPress
@@ -321,7 +351,7 @@ export default function AuthorPage() {
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {[
-                            { icon: Heart, title: 'Deeply Emotional', desc: 'Raw, authentic poetry that speaks to the heart and soul of human experience', color: 'from-pink-500 to-rose-500' },
+                            { icon: Heart, title: 'Deeply Emotional', desc: 'Raw, authentic poetry and write-ups that speak to the heart and soul of human experience', color: 'from-pink-500 to-rose-500' },
                             { icon: BookOpen, title: 'Easy to Read', desc: 'Contemporary language that resonates with modern readers of all ages', color: 'from-purple-500 to-indigo-500' },
                             { icon: TrendingUp, title: 'Transformative', desc: 'Poetry that inspires personal growth, healing, and self-discovery', color: 'from-indigo-500 to-purple-500' }
                         ].map((item, i) => (
@@ -344,14 +374,14 @@ export default function AuthorPage() {
                         <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white text-center">About the Book</h2>
 
                         <p className="text-lg text-slate-200 leading-relaxed text-center max-w-3xl mx-auto">
-                            "Love, Loss, and Life" is a comprehensive poetry collection featuring over 100 original poems that explore the full spectrum of human emotion. From the euphoria of new love to the depths of heartbreak, from moments of despair to the triumph of self-discovery, this book is your companion through life's most profound experiences.
+                            "Love, Loss, and Life" - A deeply moving story of love, heartbreak, and the quiet strength it takes to live on.
                         </p>
 
                         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 pt-8">
                             {[
                                 { title: 'Romance & Love', desc: 'Passionate verses exploring desire, connection, and the intoxication of love', gradient: 'from-pink-500 to-purple-500' },
                                 { title: 'Healing & Loss', desc: 'Poems that honor grief, validate pain, and guide you toward healing', gradient: 'from-purple-500 to-indigo-500' },
-                                { title: 'Growth & Life', desc: 'Motivational poetry celebrating resilience, wisdom, and personal transformation', gradient: 'from-indigo-500 to-pink-500' }
+                                { title: 'Growth & Life', desc: 'Motivational Novel celebrating resilience, wisdom, and personal transformation', gradient: 'from-indigo-500 to-pink-500' }
                             ].map((theme, i) => (
                                 <div key={i} className="text-center space-y-3 p-6 md:p-8 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-purple-500/50 transition-all hover:transform hover:scale-105 backdrop-blur-sm">
                                     <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${theme.gradient} mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl`}>
@@ -377,7 +407,7 @@ export default function AuthorPage() {
                         <div className="flex-1 space-y-6">
                             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white">About Makhanchor</h2>
                             <p className="text-base md:text-lg text-slate-200 leading-relaxed">
-                                Yogesh Bhavsar, known as “Makhanchor”, writes poetry inspired by personal experiences of love, loss, self-doubt, healing, and quiet hope. His work is rooted in emotional honesty, combining traditional sensitivity with a contemporary voice, appealing to readers seeking reflection over performance. Makhanchor’s words resonate during moments when emotions feel heavy, unspoken, or hard to express, offering comfort and connection to thousands of readers through that shared silence.
+                                Yogesh Bhavsar, known as “Makhanchor”, writes poetry and write-ups inspired by personal experiences of love, loss, self-doubt, healing, and quiet hope. His work is rooted in emotional honesty, combining traditional sensitivity with a contemporary voice, appealing to readers seeking reflection over performance. Makhanchor’s words resonate during moments when emotions feel heavy, unspoken, or hard to express, offering comfort and connection to thousands of readers through that shared silence.
                             </p>
 
                             <div className="flex flex-wrap gap-4 pt-4">
@@ -438,21 +468,26 @@ export default function AuthorPage() {
                         <BuyButton
                             variant="secondary"
                             icon={Award}
-                            href="https://notionpress.com"
+                            href="https://notionpress.com/in/read/love-loss-and-life"
                             price="₹175"
-                            originalPrice="₹199"
-                            benefit="Best Price + Code"
+                            originalPrice="₹299"
+                            benefit="✓ Best Price • Delivery included"
                             couponCode="LOVELOSS175"
+                            discount={42}
                             featured={true}
                         >
                             NotionPress
                         </BuyButton>
+
                         <BuyButton
                             variant="primary"
                             icon={ShoppingCart}
-                            href="https://amazon.in"
-                            price="₹199"
-                            benefit="Prime Delivery"
+                            href="https://amzn.in/d/4H2hwRy"
+                            price="₹224"
+                            originalPrice="₹249"
+                            benefit="✓ Prime: Free Delivery • 10% OFF"
+                            discount={10}
+                            format="paperback"
                         >
                             Amazon
                         </BuyButton>
@@ -463,7 +498,7 @@ export default function AuthorPage() {
             {/* Footer - Full Width */}
             <footer className="py-8 md:py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
                 <div className="w-full max-w-7xl mx-auto text-center text-slate-400 text-sm">
-                    <p>© 2025 Makhanchor (Yogesh Bhavsar). All rights reserved. | Poetry Book: Love, Loss, and Life</p>
+                    <p>© 2025 Makhanchor (Yogesh Bhavsar). All rights reserved. | Novel: Love, Loss, and Life</p>
                 </div>
             </footer>
         </div>
