@@ -20,7 +20,7 @@ const BuyButton = ({
     couponCode,
     discount,
     featured,
-    onClick,    
+    onClick,
 }) => {
     const [copied, setCopied] = useState(false);
 
@@ -29,7 +29,7 @@ const BuyButton = ({
         navigator.clipboard.writeText(couponCode);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
-        gaEvent('Coupon_Code_Copied', { coupon_code: couponCode });
+        gaEvent('coupon_code_copied', { coupon_code: couponCode });
     };
 
     const baseClasses = "group relative rounded-2xl font-bold transition-all duration-300 flex flex-col gap-3 overflow-hidden w-full sm:w-auto backdrop-blur-sm";
@@ -262,7 +262,7 @@ export default function AuthorPage() {
                                     <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">and Life</span>
                                 </h1>
                                 <p className="text-lg sm:text-xl text-slate-200 font-light leading-relaxed">
-                                "Love, Loss, and Life" - A deeply moving story of love, heartbreak, and the quiet strength it takes to live on.
+                                    "Love, Loss, and Life" - A deeply moving story of love, heartbreak, and the quiet strength it takes to live on.
                                 </p>
                             </div>
 
@@ -274,7 +274,7 @@ export default function AuthorPage() {
                                     </p>
                                     <div className="grid sm:grid-cols-2 gap-4">
                                         <BuyButton
-                                            onClick={() => gaEvent('Buy_NotionPress_Clicked', { platform: 'NotionPress', label:'hero_learn_more' })}
+                                            onClick={() => gaEvent('buy_notionpress_clicked', { platform: 'NotionPress', label: 'hero_learn_more' })}
                                             variant="secondary"
                                             icon={Award}
                                             href="https://notionpress.com/in/read/love-loss-and-life"
@@ -289,7 +289,7 @@ export default function AuthorPage() {
                                         </BuyButton>
 
                                         <BuyButton
-                                            onClick={() => gaEvent('Buy_Amazon_Clicked', { platform: 'Amazon', label:'hero_learn_more' })}
+                                            onClick={() => gaEvent('buy_amazon_clicked', { platform: 'Amazon', label: 'hero_learn_more' })}
                                             variant="primary"
                                             icon={ShoppingCart}
                                             href="https://amzn.in/d/4H2hwRy"
@@ -415,7 +415,7 @@ export default function AuthorPage() {
 
                             <div className="flex flex-wrap gap-4 pt-4">
                                 <a
-                                    onClick={() => gaEvent('Follow_Instagram_Clicked', { platform: 'Instagram', label:'author_section' })}
+                                    onClick={() => gaEvent('follow_instagram_clicked', { platform: 'Instagram', label: 'author_section' })}
                                     href="https://www.instagram.com/the.makhanchor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -425,7 +425,7 @@ export default function AuthorPage() {
                                     <span>Follow on Instagram</span>
                                 </a>
                                 <a
-                                    onClick={() => gaEvent('Follow_YouTube_Clicked', { platform: 'YouTube', label:'author_section' })}
+                                    onClick={() => gaEvent('follow_youtube_clicked', { platform: 'YouTube', label: 'author_section' })}
                                     href="https://www.youtube.com/@makhanchor646"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -455,7 +455,7 @@ export default function AuthorPage() {
                                 isOpen={openFAQ === index}
                                 onClick={() => {
                                     setOpenFAQ(openFAQ === index ? null : index);
-                                    gaEvent('FAQ_Item_Clicked', { question: faq.question, label:'faq_section' });
+                                    gaEvent('faq_item_clicked', { question: faq.question, label: 'faq_section', name: faq.question });
                                 }}
                             />
                         ))}
@@ -474,7 +474,7 @@ export default function AuthorPage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                         <BuyButton
-                                                                    onClick={() => gaEvent('Buy_NotionPress_Clicked', { platform: 'NotionPress', label:'footer_cta' })}
+                            onClick={() => gaEvent('buy_notionpress_clicked', { platform: 'NotionPress', label: 'footer_cta' })}
 
                             variant="secondary"
                             icon={Award}
@@ -490,7 +490,7 @@ export default function AuthorPage() {
                         </BuyButton>
 
                         <BuyButton
-                            onClick={() => gaEvent('Buy_Amazon_Clicked', { platform: 'Amazon', label:'footer_cta' })}
+                            onClick={() => gaEvent('buy_amazon_clicked', { platform: 'Amazon', label: 'footer_cta' })}
                             variant="primary"
                             icon={ShoppingCart}
                             href="https://amzn.in/d/4H2hwRy"
