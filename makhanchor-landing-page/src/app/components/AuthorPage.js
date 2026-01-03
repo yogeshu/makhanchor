@@ -19,7 +19,8 @@ const BuyButton = ({
     benefit,
     couponCode,
     discount,
-    featured
+    featured,
+    onClick,    
 }) => {
     const [copied, setCopied] = useState(false);
 
@@ -28,6 +29,7 @@ const BuyButton = ({
         navigator.clipboard.writeText(couponCode);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
+        gaEvent('Coupon_Code_Copied', { coupon_code: couponCode });
     };
 
     const baseClasses = "group relative rounded-2xl font-bold transition-all duration-300 flex flex-col gap-3 overflow-hidden w-full sm:w-auto backdrop-blur-sm";
@@ -43,9 +45,7 @@ const BuyButton = ({
             target="_blank"
             rel="noopener noreferrer"
             className={`${baseClasses} ${variants[variant]} ${featured ? 'ring-2 ring-offset-2 ring-amber-400' : ''}`}
-            onClick={() => {
-                console.log(`Button clicked: ${children}`);
-            }}
+            onClick={onClick}
         >
             {featured && (
                 <div className="absolute top-3 right-3 bg-amber-400 text-slate-900 px-3 py-1 rounded-full text-xs font-black flex items-center gap-1 z-20">
@@ -415,6 +415,7 @@ export default function AuthorPage() {
 
                             <div className="flex flex-wrap gap-4 pt-4">
                                 <a
+                                    onClick={() => gaEvent('Follow_Instagram_Clicked', { platform: 'Instagram', label:'author_section' })}
                                     href="https://www.instagram.com/the.makhanchor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -424,6 +425,7 @@ export default function AuthorPage() {
                                     <span>Follow on Instagram</span>
                                 </a>
                                 <a
+                                    onClick={() => gaEvent('Follow_YouTube_Clicked', { platform: 'YouTube', label:'author_section' })}
                                     href="https://www.youtube.com/@makhanchor646"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -451,7 +453,10 @@ export default function AuthorPage() {
                                 question={faq.question}
                                 answer={faq.answer}
                                 isOpen={openFAQ === index}
-                                onClick={() => setOpenFAQ(openFAQ === index ? null : index)}
+                                onClick={() => {
+                                    setOpenFAQ(openFAQ === index ? null : index);
+                                    gaEvent('FAQ_Item_Clicked', { question: faq.question, label:'faq_section' });
+                                }}
                             />
                         ))}
                     </div>

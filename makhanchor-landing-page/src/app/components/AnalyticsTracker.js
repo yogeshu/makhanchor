@@ -14,5 +14,22 @@ export default function AnalyticsTracker() {
     }
   }, [pathname, searchParams])
 
+  // scroll event listener can be added here if needed
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.gtag) {
+        window.gtag('event', 'scroll', {
+          page_path: pathname + searchParams.toString(),
+          scroll_position: window.scrollY,
+        })
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [pathname, searchParams])
+
   return null
 }
