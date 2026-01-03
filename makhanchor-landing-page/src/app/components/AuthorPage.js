@@ -3,7 +3,8 @@
 import React, { useState } from 'react';
 import './AuthorPage.css';
 import bookMockup from '../../app/assets/image/PosterWebsite.png';
-import { ShoppingCart, ExternalLink, Instagram, Youtube, Sparkles, ChevronDown, BookOpen, Heart, TrendingUp, Copy, Check, Zap, Award } from 'lucide-react';
+import author from '../../app/assets/image/AImakhanchor.png';
+import { ShoppingCart, Instagram, Youtube, ChevronDown, BookOpen, Heart, TrendingUp, Copy, Check, Zap, Award } from 'lucide-react';
 import Image from 'next/image';
 
 // Enhanced BuyButton Component with Coupon Badge
@@ -244,7 +245,7 @@ export default function AuthorPage() {
                                         <BuyButton
                                             variant="secondary"
                                             icon={Award}
-                                            href="https://notionpress.com"
+                                            href="https://notionpress.com/in/read/love-loss-and-life"
                                             price="₹175"
                                             originalPrice="₹199"
                                             benefit="✓ Best Price • Direct Support"
@@ -258,7 +259,7 @@ export default function AuthorPage() {
                                         <BuyButton
                                             variant="primary"
                                             icon={ShoppingCart}
-                                            href="https://amazon.in"
+                                            href="https://amzn.in/d/4H2hwRy"
                                             price="₹224"
                                             originalPrice="₹249"
                                             benefit="✓ Prime: Free Delivery • 10% OFF"
@@ -370,7 +371,7 @@ export default function AuthorPage() {
                 <div className="w-full max-w-5xl mx-auto">
                     <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 bg-slate-800/30 p-6 md:p-12 rounded-2xl border border-slate-700 backdrop-blur-sm">
                         <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-6xl md:text-7xl font-serif text-white shadow-2xl shadow-purple-900/50 flex-shrink-0">
-                            M
+                            <Image src={author} alt="Makhanchor (Yogesh Bhavsar)" width={192} height={192} className="w-full h-full rounded-full object-cover" />
                         </div>
 
                         <div className="flex-1 space-y-6">
@@ -381,7 +382,7 @@ export default function AuthorPage() {
 
                             <div className="flex flex-wrap gap-4 pt-4">
                                 <a
-                                    href="https://instagram.com"
+                                    href="https://www.instagram.com/the.makhanchor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 text-white font-semibold transition-all hover:scale-105 shadow-lg"
@@ -390,7 +391,7 @@ export default function AuthorPage() {
                                     <span>Follow on Instagram</span>
                                 </a>
                                 <a
-                                    href="https://youtube.com"
+                                    href="https://www.youtube.com/@makhanchor646"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-700 hover:bg-slate-600 text-white font-semibold transition-all hover:scale-105"
