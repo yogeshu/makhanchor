@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { gaEvent } from '@/lib/ga'
 import './AuthorPage.css';
 import bookMockup from '../../app/assets/image/PosterWebsite.png';
 import author from '../../app/assets/image/AImakhanchor.png';
@@ -273,6 +274,7 @@ export default function AuthorPage() {
                                     </p>
                                     <div className="grid sm:grid-cols-2 gap-4">
                                         <BuyButton
+                                            onClick={() => gaEvent('Buy_NotionPress_Clicked', { platform: 'NotionPress', label:'hero_learn_more' })}
                                             variant="secondary"
                                             icon={Award}
                                             href="https://notionpress.com/in/read/love-loss-and-life"
@@ -287,6 +289,7 @@ export default function AuthorPage() {
                                         </BuyButton>
 
                                         <BuyButton
+                                            onClick={() => gaEvent('Buy_Amazon_Clicked', { platform: 'Amazon', label:'hero_learn_more' })}
                                             variant="primary"
                                             icon={ShoppingCart}
                                             href="https://amzn.in/d/4H2hwRy"
@@ -466,6 +469,8 @@ export default function AuthorPage() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                         <BuyButton
+                                                                    onClick={() => gaEvent('Buy_NotionPress_Clicked', { platform: 'NotionPress', label:'footer_cta' })}
+
                             variant="secondary"
                             icon={Award}
                             href="https://notionpress.com/in/read/love-loss-and-life"
@@ -480,6 +485,7 @@ export default function AuthorPage() {
                         </BuyButton>
 
                         <BuyButton
+                            onClick={() => gaEvent('Buy_Amazon_Clicked', { platform: 'Amazon', label:'footer_cta' })}
                             variant="primary"
                             icon={ShoppingCart}
                             href="https://amzn.in/d/4H2hwRy"
