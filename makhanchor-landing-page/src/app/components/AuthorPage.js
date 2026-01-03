@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { gaEvent } from '@/lib/ga'
+import { gaEvent } from '../lib/ga'
 import './AuthorPage.css';
 import bookMockup from '../../app/assets/image/PosterWebsite.png';
 import author from '../../app/assets/image/AImakhanchor.png';
