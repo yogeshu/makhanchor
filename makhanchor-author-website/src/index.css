@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-cursive: "Caveat", "Great Vibes", cursive;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-coral: #db7a60;
+  --color-brand-coral-hover: #c4684e;
+  --color-brand-cream: #faf8f5;
+  --color-brand-obsidian: #0a0a0c;
+  --color-brand-charcoal: #16171b;
+  --color-brand-paper: #f4ede2;
+}
+
+/* Custom scrollbar and ambient styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b2d35;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #db7a60;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-brand-obsidian);
+  color: #faf8f5;
+  overflow-x: hidden;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(219, 122, 96, 0.3);
+  color: #faf8f5;
+}
+
+/* Custom keyframes and animations */
+@keyframes rain {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 40px 120px;
+  }
+}
+
+.animate-rain {
+  animation: rain 1.5s linear infinite;
+}
+
+/* Elegant Grid Patterns for the cards */
+.bg-grid-lilac {
+  background-size: 8px 8px;
+  background-image: linear-gradient(to right, rgba(120, 80, 180, 0.12) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(120, 80, 180, 0.12) 1px, transparent 1px);
+}
+
+.bg-grid-pink {
+  background-size: 8px 8px;
+  background-image: linear-gradient(to right, rgba(219, 122, 96, 0.12) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(219, 122, 96, 0.12) 1px, transparent 1px);
+}
+

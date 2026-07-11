@@ -1,0 +1,6 @@
+{
+  "name": "Makhanchor Author Website",
+  "description": "A highly optimized, gorgeous, and responsive author website for Makhanchor, featuring the poetry book 'The Journey of First Love', dynamic blog grids, reviews, and interactive poetry modules.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
