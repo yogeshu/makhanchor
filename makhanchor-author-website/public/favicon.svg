@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="coralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7b5c" />
+      <stop offset="100%" stop-color="#e0533c" />
+    </linearGradient>
+  </defs>
+  <!-- Beautiful glowing background disk -->
+  <rect width="32" height="32" rx="8" fill="#110d24" />
+  <!-- Minimalist stylized feather quill morphing into a heart -->
+  <path 
+    d="M16 7 C14 11, 9 12, 9 17 C9 21, 12.5 24, 16 24 C19.5 24, 23 21, 23 17 C23 12, 18 11, 16 7 Z" 
+    fill="url(#coralGrad)" 
+  />
+  <path 
+    d="M16 11 L16 23" 
+    stroke="#110d24" 
+    stroke-width="1.5" 
+    stroke-linecap="round" 
+  />
+  <!-- A glowing spark representing poetic inspiration -->
+  <circle cx="16" cy="11" r="1.5" fill="#ffffff" />
+  <circle cx="21" cy="13" r="1" fill="#ffffff" opacity="0.8" />
+</svg>

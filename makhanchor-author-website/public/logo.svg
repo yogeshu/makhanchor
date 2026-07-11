@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="320" height="80">
+  <defs>
+    <linearGradient id="logoCoral" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7b5c" />
+      <stop offset="100%" stop-color="#e0533c" />
+    </linearGradient>
+    <style>
+      .brand-title {
+        font-family: 'Playfair Display', 'Georgia', serif;
+        font-weight: 700;
+        fill: #ffffff;
+        font-size: 26px;
+        letter-spacing: 0.08em;
+      }
+      .brand-subtitle {
+        font-family: 'Inter', sans-serif;
+        font-weight: 500;
+        fill: #ff7b5c;
+        font-size: 9px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+    </style>
+  </defs>
+  <!-- Feather-quill + Heart hybrid brand icon -->
+  <g transform="translate(15, 12)">
+    <circle cx="28" cy="28" r="26" fill="#150f28" stroke="#ff7b5c" stroke-width="1.5" stroke-opacity="0.3" />
+    <path 
+      d="M28 15 C25 21, 18 22, 18 29 C18 34, 23 38, 28 38 C33 38, 38 34, 38 29 C38 22, 31 21, 28 15 Z" 
+      fill="url(#logoCoral)" 
+    />
+    <path 
+      d="M28 20 L28 37" 
+      stroke="#150f28" 
+      stroke-width="1.5" 
+      stroke-linecap="round" 
+    />
+    <circle cx="28" cy="19" r="1.5" fill="#ffffff" />
+  </g>
+  
+  <!-- Brand text -->
+  <text x="85" y="38" class="brand-title">Makhanchor</text>
+  <text x="87" y="55" class="brand-subtitle">Poetry &amp; Stories that Heal</text>
+</svg>

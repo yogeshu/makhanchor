@@ -65,7 +65,7 @@ export default function SEO({ title, description, activeBlog, activeTab }: SEOPr
     const currentUrl = activeBlog 
       ? `${siteUrl}blog/${activeBlog.slug}` 
       : `${siteUrl}${pathname === '/' ? '' : pathname.substring(1)}`;
-    const currentImage = activeBlog?.imageUrl || 'https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?auto=format&fit=crop&w=1200&h=630&q=80';
+    const currentImage = activeBlog?.imageUrl || `${siteUrl}og-image.svg`;
     const currentType = activeBlog ? 'article' : 'website';
 
     updateMetaTag('property', 'og:title', displayTitle);
