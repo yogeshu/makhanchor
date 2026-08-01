@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { Instagram, Youtube, Mail, ArrowUp, CheckCircle, Send } from 'lucide-react';
 import { motion } from 'motion/react';
+import { saveSubscriberToFirebase } from '../lib/firebase';
 
 interface FooterProps {
   onSubscribe?: (email: string) => void;
@@ -54,7 +55,12 @@ export default function Footer({ onSubscribe, onOpenLegal }: FooterProps) {
 
     setStatus('submitting');
     setErrorMessage('');
-
+  // Save subscriber to Firebase
+    try {
+      await saveSubscriberToFirebase(email);
+    } catch (fbErr) {
+      console.warn("Firebase footer subscriber notice:", fbErr);
+    }
     try {
       const response = await fetch('/api/subscribe', {
         method: 'POST',

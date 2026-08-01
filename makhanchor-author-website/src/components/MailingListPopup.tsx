@@ -6,6 +6,7 @@
 import { useState, useEffect, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Mail, X, Check, Sparkles, Heart } from "lucide-react";
+import { saveSubscriberToFirebase } from "../lib/firebase";
 
 export default function MailingListPopup() {
   const [isOpen, setIsOpen] = useState(false);
@@ -91,7 +92,12 @@ export default function MailingListPopup() {
 
     setStatus("submitting");
     setErrorMessage("");
-
+   // Save subscriber to Firebase
+    try {
+      await saveSubscriberToFirebase(email);
+    } catch (fbErr) {
+      console.warn("Firebase subscriber save notice:", fbErr);
+    }
     try {
       const response = await fetch("/api/subscribe", {
         method: "POST",

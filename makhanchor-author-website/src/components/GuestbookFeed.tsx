@@ -6,6 +6,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Quote, ChevronLeft, ChevronRight, MessageSquare, Sparkles, RefreshCw } from 'lucide-react';
+import { fetchGuestbookFromFirebase } from '../lib/firebase';
 
 interface GuestbookNote {
   name: string;
@@ -105,31 +106,47 @@ export default function GuestbookFeed() {
     return [];
   };
 
-  const fetchNotes = async () => {
+const fetchNotes = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch('/api/guestbook');
-      if (response.ok) {
-        const data = await response.json();
-        // Even if successful, let's merge with any local offline-first user-created letters
-        const localLetters = getOfflineLetters();
-        const merged = [...localLetters, ...data];
-        // Deduplicate by message just in case
-        const unique = merged.filter((item, index, self) =>
-          index === self.findIndex((t) => t.message === item.message)
-        );
-        setNotes(unique.length > 0 ? unique : starterNotes);
-      } else {
-        throw new Error('Server returned non-ok status');
+      // 1. Fetch from Firebase
+      const firebaseEntries = await fetchGuestbookFromFirebase();
+      const firebaseFormatted: GuestbookNote[] = firebaseEntries.map((e) => ({
+        name: e.authorName,
+        message: e.comment,
+        sentAt: e.createdAt,
+      }));
+
+      // 2. Fetch from local API endpoint if available
+      let apiNotes: GuestbookNote[] = [];
+      try {
+        const response = await fetch('/api/guestbook');
+        if (response.ok) {
+          apiNotes = await response.json();
+        }
+      } catch (e) {
+        // ignore endpoint error
       }
+
+      // 3. Local offline letters
+      const localLetters = getOfflineLetters();
+
+      // Merge all sources
+      const merged = [...firebaseFormatted, ...localLetters, ...apiNotes, ...starterNotes];
+      const unique = merged.filter((item, index, self) =>
+        index === self.findIndex((t) => t.message === item.message)
+      );
+
+      setNotes(unique.length > 0 ? unique : starterNotes);
     } catch (err) {
-      console.info('Using local offline-first guestbook fallback (Hostinger/Serverless mode)');
+      console.info('Using local offline-first guestbook fallback');
       const localLetters = getOfflineLetters();
       setNotes([...localLetters, ...starterNotes]);
     } finally {
       setIsLoading(false);
     }
   };
+
 
   useEffect(() => {
     fetchNotes();

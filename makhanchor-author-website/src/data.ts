@@ -230,5 +230,6 @@ export const BOOK_METADATA = {
   amazonReviews: "150+",
   goodreadsRatings: "90+",
   authorRole: "Author & Poet",
-  isbn: "9798895033501"
+  isbn: "9798895033501",
+  notionPressCoupon: "LOVELOSS175"
 };

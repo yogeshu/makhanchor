@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Mail, Send, CheckCircle, Sparkles, Feather } from 'lucide-react';
+import { saveLetterToFirebase } from '../lib/firebase';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -55,7 +56,17 @@ export default function ContactForm() {
       message: formData.message,
       sentAt: new Date().toISOString()
     };
-
+ // Save to Firebase Firestore Database
+    try {
+      await saveLetterToFirebase({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message
+      });
+      console.log('Letter successfully stored in Firebase Firestore!');
+    } catch (firebaseErr) {
+      console.warn('Firebase submission notice:', firebaseErr);
+    }
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',

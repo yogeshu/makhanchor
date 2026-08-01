@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /letters/{letterId} {
+      allow create: if request.resource.data.keys().hasAll(['name', 'email', 'message', 'createdAt'])
+                    && request.resource.data.name is string
+                    && request.resource.data.email is string
+                    && request.resource.data.message is string;
+      allow read: if true;
+    }
+
+    match /guestbook/{entryId} {
+      allow create: if request.resource.data.keys().hasAll(['authorName', 'comment', 'createdAt'])
+                    && request.resource.data.authorName is string
+                    && request.resource.data.comment is string;
+      allow read: if true;
+    }
+
+    match /subscribers/{subscriberId} {
+      allow create: if request.resource.data.keys().hasAll(['email', 'subscribedAt'])
+                    && request.resource.data.email is string;
+      allow read: if true;
+    }
+  }
+}

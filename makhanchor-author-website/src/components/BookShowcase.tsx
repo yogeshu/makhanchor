@@ -84,7 +84,33 @@ export default function BookShowcase({ onBuyNow, onAmazonClick, onReadFirstChapt
               "Every verse inside feels like a soft warm hand on my shoulder, gently reminding me that it's okay to feel deeply."
             </div>
           </motion.div>
-
+{/* Notion Press Coupon Banner */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="w-full max-w-md bg-amber-500/10 border border-amber-600/20 rounded-2xl p-3.5 flex items-center justify-between"
+          >
+            <div className="flex items-center space-x-2.5">
+              <span className="text-lg">🎉</span>
+              <div>
+                <span className="text-xs font-bold text-amber-900 block uppercase tracking-wider">
+                  NOTION PRESS DISCOUNT
+                </span>
+                <span className="text-xs text-brand-charcoal/80 font-medium">
+                  Get ₹175 FLAT OFF on Notion Press!
+                </span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-1">
+              <span className="text-[10px] text-amber-900/60 font-semibold uppercase mr-1 hidden sm:inline">Use code:</span>
+              <code className="bg-amber-600/20 text-amber-950 font-mono font-bold text-xs px-2.5 py-1 rounded-lg border border-amber-600/30">
+                {BOOK_METADATA.notionPressCoupon}
+              </code>
+            </div>
+          </motion.div>
+          
           {/* Buy Buttons Block */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}

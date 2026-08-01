@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "letters": {
+      "title": "Letterbox Submissions",
+      "description": "Heartfelt letters submitted by readers to the author under the moonlight",
+      "properties": {
+        "name": { "type": "string", "description": "Sender name" },
+        "email": { "type": "string", "description": "Sender email" },
+        "message": { "type": "string", "description": "Letter message content" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["name", "email", "message", "createdAt"]
+    },
+    "guestbook": {
+      "title": "Guestbook Reader Reflections",
+      "description": "Public reflections and book thoughts left by readers",
+      "properties": {
+        "authorName": { "type": "string", "description": "Reader display name" },
+        "location": { "type": "string", "description": "Reader city/country" },
+        "comment": { "type": "string", "description": "Reflection or quote" },
+        "rating": { "type": "number", "description": "Rating out of 5 stars" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+      },
+      "required": ["authorName", "comment", "createdAt"]
+    },
+    "subscribers": {
+      "title": "Mailing List Subscribers",
+      "description": "Subscribers for author newsletter and chapter updates",
+      "properties": {
+        "email": { "type": "string", "description": "Subscriber email address" },
+        "subscribedAt": { "type": "string", "format": "date-time", "description": "Subscription timestamp" }
+      },
+      "required": ["email", "subscribedAt"]
+    }
+  }
+}
