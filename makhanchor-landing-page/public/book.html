@@ -1,0 +1,1495 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Love, Loss, and Life by Makhanchor (Yogesh Bhavsar) - a moving book of love, heartbreak, healing, and hope." />
+  <meta name="theme-color" content="#020617" />
+  <meta property="og:title" content="Love, Loss, and Life | Makhanchor" />
+  <meta property="og:description" content="A deeply moving story of love, heartbreak, and the quiet strength it takes to live on." />
+  <meta property="og:image" content="/book-assets/PosterWebsite.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>Love, Loss, and Life | Makhanchor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-0: #020617;
+      --bg-1: #0f172a;
+      --bg-2: #111827;
+      --panel: rgba(15, 23, 42, 0.62);
+      --panel-strong: rgba(30, 41, 59, 0.72);
+      --border: rgba(51, 65, 85, 0.95);
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --muted-2: #cbd5e1;
+      --purple: #a855f7;
+      --purple-2: #7c3aed;
+      --pink: #ec4899;
+      --amber: #f59e0b;
+      --orange: #f97316;
+      --shadow: 0 30px 80px rgba(2, 6, 23, 0.45);
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(168, 85, 247, 0.14), transparent 30%),
+        radial-gradient(circle at 80% 25%, rgba(236, 72, 153, 0.14), transparent 28%),
+        linear-gradient(135deg, var(--bg-0), var(--bg-1) 55%, var(--bg-0));
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .serif {
+      font-family: "Playfair Display", serif;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      position: relative;
+      padding: 5rem 0;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 4rem 0;
+      overflow: hidden;
+    }
+
+    .orb {
+      position: absolute;
+      width: 24rem;
+      height: 24rem;
+      border-radius: 999px;
+      filter: blur(80px);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .orb.purple {
+      background: rgba(147, 51, 234, 0.15);
+      top: 12%;
+      left: 14%;
+    }
+
+    .orb.pink {
+      background: rgba(236, 72, 153, 0.15);
+      bottom: 14%;
+      right: 13%;
+    }
+
+    .hero-grid,
+    .split-grid,
+    .faq-shell,
+    .cta-shell {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .hero-grid {
+      max-width: var(--max);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-copy {
+      padding: 0 0.5rem;
+      animation: fadeInUp 0.9s ease-out 0.12s both;
+    }
+
+    .hero-art {
+      padding: 0 0.5rem;
+      order: 1;
+      animation: fadeIn 1s ease-out both;
+    }
+
+    .hero-art-wrap {
+      max-width: 24rem;
+      margin: 0 auto;
+      perspective: 1000px;
+    }
+
+    .book-frame {
+      position: relative;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transform: rotateY(-10deg);
+      transition: transform 500ms ease, box-shadow 500ms ease;
+      will-change: transform;
+      background: rgba(15, 23, 42, 0.35);
+    }
+
+    .book-frame:hover {
+      transform: rotateY(-6deg) scale(1.04);
+      box-shadow: 0 40px 90px rgba(76, 29, 149, 0.42);
+    }
+
+    .book-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 35%, rgba(255, 255, 255, 0.08));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .book-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #f5d0fe;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 0.4rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    blockquote {
+      margin: 0;
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.75rem, 7vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      color: #fff;
+    }
+
+    .hero-title .accent {
+      display: inline-block;
+      background: linear-gradient(90deg, #c084fc, #f9a8d4);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lede {
+      font-size: clamp(1.05rem, 2.25vw, 1.25rem);
+      line-height: 1.8;
+      color: #e5e7eb;
+      font-weight: 300;
+      max-width: 42rem;
+    }
+
+    .buy-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .purchase-note,
+    .purchase-guide,
+    .why-card,
+    .theme-card,
+    .about-card,
+    .faq-wrap {
+      border: 1px solid var(--border);
+      background: var(--panel);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(2, 6, 23, 0.22);
+    }
+
+    .purchase-note {
+      border-color: rgba(245, 158, 11, 0.3);
+      background: rgba(180, 83, 9, 0.12);
+      border-radius: 1rem;
+      padding: 1rem;
+      font-size: 0.95rem;
+      color: #fef3c7;
+      line-height: 1.65;
+    }
+
+    .purchase-guide,
+    .faq-wrap,
+    .about-card {
+      border-radius: 1.5rem;
+    }
+
+    .purchase-guide {
+      padding: 2rem;
+    }
+
+    .section-heading {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4.6vw, 3.25rem);
+      line-height: 1.05;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .guide-step {
+      position: relative;
+      text-align: center;
+      padding: 1rem 0.25rem;
+    }
+
+    .guide-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 2.15rem;
+      right: -0.75rem;
+      width: 1.5rem;
+      height: 2px;
+      background: linear-gradient(90deg, #a855f7, #ec4899);
+    }
+
+    .step-icon,
+    .feature-icon,
+    .theme-badge,
+    .author-avatar-fallback,
+    .coupon-icon,
+    .social-icon,
+    .faq-chevron,
+    .mini-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+
+    .step-icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, #7c3aed, #ec4899);
+      margin-bottom: 0.8rem;
+      box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+    }
+
+    .step-title,
+    .feature-title,
+    .theme-title,
+    .faq-question,
+    .author-title,
+    .cta-title {
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .step-title {
+      margin-bottom: 0.4rem;
+      font-size: 1rem;
+    }
+
+    .step-desc,
+    .feature-desc,
+    .theme-desc,
+    .faq-answer,
+    .about-copy,
+    .cta-copy,
+    .footer-copy {
+      color: var(--muted-2);
+      line-height: 1.75;
+    }
+
+    .step-desc {
+      font-size: 0.92rem;
+    }
+
+    .quote-band {
+      background: rgba(15, 23, 42, 0.58);
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    }
+
+    .quote-wrap {
+      max-width: 56rem;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .quote-rule {
+      width: 4rem;
+      height: 2px;
+      margin: 0 auto;
+      background: linear-gradient(90deg, transparent, #c084fc, transparent);
+    }
+
+    .quote {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.7rem, 4.6vw, 3.5rem);
+      line-height: 1.4;
+      font-style: italic;
+      color: #fff;
+      letter-spacing: -0.03em;
+    }
+
+    .quote .accent {
+      color: #d8b4fe;
+    }
+
+    .cards-grid,
+    .themes-grid,
+    .book-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .cards-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .why-card,
+    .theme-card {
+      border-radius: 1.35rem;
+      padding: 1.5rem;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .why-card:hover,
+    .theme-card:hover {
+      transform: translateY(-3px) scale(1.01);
+      border-color: rgba(168, 85, 247, 0.52);
+    }
+
+    .feature-icon {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 1rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      background: linear-gradient(135deg, #ec4899, #ef4444);
+    }
+
+    .feature-title,
+    .theme-title {
+      margin-bottom: 0.65rem;
+      font-size: 1.35rem;
+    }
+
+    .feature-desc,
+    .theme-desc {
+      font-size: 0.98rem;
+    }
+
+    .section-subcopy {
+      max-width: 48rem;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.08rem;
+      line-height: 1.9;
+      color: #e2e8f0;
+    }
+
+    .theme-card {
+      text-align: center;
+    }
+
+    .theme-badge {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 999px;
+      color: #fff;
+      margin: 0 auto 1rem;
+      font-size: 1.35rem;
+      font-weight: 900;
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.32);
+    }
+
+    .theme-badge.pink-purple {
+      background: linear-gradient(135deg, #ec4899, #a855f7);
+    }
+
+    .theme-badge.purple-indigo {
+      background: linear-gradient(135deg, #a855f7, #6366f1);
+    }
+
+    .theme-badge.indigo-pink {
+      background: linear-gradient(135deg, #6366f1, #ec4899);
+    }
+
+    .about-card {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 1.5rem;
+      background: rgba(15, 23, 42, 0.46);
+    }
+
+    .author-avatar {
+      width: 12rem;
+      height: 12rem;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(76, 29, 149, 0.45);
+      background: linear-gradient(135deg, #7c3aed, #ec4899);
+    }
+
+    .author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author-copy {
+      flex: 1 1 auto;
+    }
+
+    .author-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      margin-bottom: 1rem;
+    }
+
+    .about-copy {
+      font-size: 1.02rem;
+      margin: 0;
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      padding-top: 0.75rem;
+    }
+
+    .social-link,
+    .buy-card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      border-radius: 1.25rem;
+      border: 1px solid transparent;
+      text-align: left;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+      box-shadow: 0 18px 40px rgba(2, 6, 23, 0.38);
+      isolation: isolate;
+    }
+
+    .buy-card:hover,
+    .social-link:hover {
+      transform: translateY(-2px) scale(1.01);
+    }
+
+    .buy-link {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding: 1.25rem 1.25rem 1rem;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .buy-link::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transform: translateX(-120%);
+      transition: transform 700ms ease;
+      pointer-events: none;
+    }
+
+    .buy-link:hover::after {
+      transform: translateX(120%);
+    }
+
+    .buy-card.primary {
+      background: linear-gradient(135deg, #7c3aed, #ec4899, #6d28d9);
+      border-color: rgba(192, 132, 252, 0.32);
+      color: #fff;
+    }
+
+    .buy-card.secondary {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      border-color: rgba(253, 186, 116, 0.75);
+      color: #fff;
+    }
+
+    .buy-card.featured {
+      box-shadow: 0 0 0 2px rgba(251, 191, 36, 0.8), 0 22px 50px rgba(180, 83, 9, 0.35);
+    }
+
+    .featured-pill {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      background: #fbbf24;
+      color: #111827;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      z-index: 2;
+    }
+
+    .buy-head,
+    .buy-price-row,
+    .coupon-row,
+    .social-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .buy-head {
+      gap: 0.8rem;
+    }
+
+    .buy-title {
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    .buy-price-row {
+      flex-wrap: wrap;
+      gap: 0.5rem 0.75rem;
+    }
+
+    .price {
+      font-size: clamp(1.9rem, 3vw, 2.35rem);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .price-old {
+      font-size: 1rem;
+      text-decoration: line-through;
+      opacity: 0.78;
+      font-weight: 600;
+    }
+
+    .discount {
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.45rem;
+      background: rgba(255, 255, 255, 0.18);
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .buy-benefit {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      opacity: 0.94;
+    }
+
+    .coupon-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 1.25rem 1.25rem;
+      padding: 0.7rem 0.8rem;
+      border-radius: 0.8rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      cursor: pointer;
+      color: inherit;
+      appearance: none;
+    }
+
+    .coupon-row:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .coupon-code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+
+    .meta-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      font-weight: 500;
+    }
+
+    .av-stack {
+      display: flex;
+      margin-left: 0.25rem;
+    }
+
+    .av {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      border: 2px solid #020617;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      margin-left: -0.45rem;
+    }
+
+    .av:first-child {
+      margin-left: 0;
+    }
+
+    .section-band {
+      background: rgba(15, 23, 42, 0.48);
+    }
+
+    .about-section {
+      background: rgba(15, 23, 42, 0.3);
+    }
+
+    .faq-wrap {
+      overflow: hidden;
+    }
+
+    .faq-item + .faq-item {
+      border-top: 1px solid var(--border);
+    }
+
+    .faq-trigger {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 1.25rem;
+      background: transparent;
+      border: 0;
+      color: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: background 180ms ease;
+    }
+
+    .faq-trigger:hover {
+      background: rgba(30, 41, 59, 0.35);
+    }
+
+    .faq-question {
+      font-size: 1.05rem;
+      flex: 1 1 auto;
+      line-height: 1.5;
+    }
+
+    .faq-chevron {
+      width: 1.5rem;
+      height: 1.5rem;
+      color: #c084fc;
+      transition: transform 220ms ease;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    .faq-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 260ms ease;
+    }
+
+    .faq-item.open .faq-panel {
+      max-height: 35rem;
+    }
+
+    .faq-answer {
+      padding: 0 1.25rem 1.2rem;
+      margin: 0;
+    }
+
+    .faq-answer p {
+      margin: 0 0 0.85rem;
+    }
+
+    .faq-answer ul {
+      margin: 0.75rem 0 0.75rem 1.25rem;
+      padding: 0;
+    }
+
+    .faq-answer li + li {
+      margin-top: 0.45rem;
+    }
+
+    .faq-answer a {
+      color: #d8b4fe;
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+
+    .cta-shell {
+      max-width: 56rem;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.05rem, 5vw, 3.4rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .cta-copy {
+      font-size: 1.1rem;
+      max-width: 45rem;
+      margin: 0 auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      border-top: 1px solid rgba(51, 65, 85, 0.8);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .icon {
+      width: 1.15rem;
+      height: 1.15rem;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      flex: 0 0 auto;
+    }
+
+    .icon.sm {
+      width: 0.95rem;
+      height: 0.95rem;
+    }
+
+    .icon.md {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    .icon.lg {
+      width: 1.7rem;
+      height: 1.7rem;
+    }
+
+    .icon.xl {
+      width: 2.3rem;
+      height: 2.3rem;
+    }
+
+    .rotate-y {
+      transform: rotateY(-12deg);
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-out both;
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+      white-space: nowrap;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .hero-art {
+        order: 0;
+      }
+
+      .guide-grid,
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .guide-step:not(:last-child)::after {
+        display: none;
+      }
+
+      .about-card {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .social-row,
+      .cta-buttons {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding: 4rem 0;
+      }
+
+      .hero {
+        padding: 3rem 0;
+      }
+
+      .container {
+        width: min(100% - 24px, var(--max));
+      }
+
+      .buy-grid,
+      .guide-grid,
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .purchase-guide,
+      .faq-trigger,
+      .faq-answer,
+      .about-card {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .buy-card,
+      .social-link {
+        width: 100%;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .hero-title {
+        font-size: clamp(2.55rem, 13vw, 4rem);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <svg aria-hidden="true" width="0" height="0" style="position:absolute;left:-9999px;top:-9999px;overflow:hidden">
+    <symbol id="icon-shopping-cart" viewBox="0 0 24 24">
+      <circle cx="9" cy="20" r="1.5"></circle>
+      <circle cx="18" cy="20" r="1.5"></circle>
+      <path d="M3 4h2l2.2 10.5a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.5L22 7H7.1"></path>
+    </symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+      <circle cx="12" cy="12" r="3.2"></circle>
+      <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none"></circle>
+    </symbol>
+    <symbol id="icon-youtube" viewBox="0 0 24 24">
+      <rect x="3" y="6" width="18" height="12" rx="3"></rect>
+      <path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"></path>
+    </symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24">
+      <path d="m6 9 6 6 6-6"></path>
+    </symbol>
+    <symbol id="icon-book-open" viewBox="0 0 24 24">
+      <path d="M12 7c-2.5-2-5.4-2.3-8-1.5v12c2.6-.8 5.5-.5 8 1.5"></path>
+      <path d="M12 7c2.5-2 5.4-2.3 8-1.5v12c-2.6-.8-5.5-.5-8 1.5"></path>
+      <path d="M12 7v12"></path>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24">
+      <path d="M20.8 7.6c0 5.8-8.8 10.5-8.8 10.5S3.2 13.4 3.2 7.6A4.6 4.6 0 0 1 12 5.4a4.6 4.6 0 0 1 8.8 2.2z"></path>
+    </symbol>
+    <symbol id="icon-trending-up" viewBox="0 0 24 24">
+      <path d="M3 17h6l4-5 4 3 4-7"></path>
+      <path d="M17 8h4v4"></path>
+    </symbol>
+    <symbol id="icon-copy" viewBox="0 0 24 24">
+      <rect x="9" y="9" width="11" height="11" rx="2"></rect>
+      <path d="M7 15H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v1"></path>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="m20 6-11 11-5-5"></path>
+    </symbol>
+    <symbol id="icon-zap" viewBox="0 0 24 24">
+      <path d="m13 2-8 11h6l-1 9 8-11h-6z"></path>
+    </symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24">
+      <circle cx="12" cy="8" r="5"></circle>
+      <path d="m8.5 12.5-1.5 8 5-3 5 3-1.5-8"></path>
+      <path d="M10.5 8.5 12 10l1.5-1.5"></path>
+    </symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24">
+      <path d="M12 5v14"></path>
+      <path d="M5 12h14"></path>
+    </symbol>
+  </svg>
+
+  <div class="page">
+    <section class="hero">
+      <div class="orb purple"></div>
+      <div class="orb pink"></div>
+      <div class="container hero-grid">
+        <div class="hero-art fade-in">
+          <div class="hero-art-wrap">
+            <div class="book-frame rotate-y">
+              <img src="/book-assets/PosterWebsite.png" alt="Love, Loss, and Life Book Cover" width="300" height="400" />
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-copy fade-in-up">
+          <div class="stack">
+            <div>
+              <h1 class="hero-title">
+                Love, Loss,<br />
+                <span class="accent">and Life</span>
+              </h1>
+              <p class="lede">"Love, Loss, and Life" - A deeply moving story of love, heartbreak, and the quiet strength it takes to live on.</p>
+            </div>
+
+            <div>
+              <div class="eyebrow">
+                <svg class="icon sm" aria-hidden="true"><use href="#icon-zap"></use></svg>
+                Get Your Copy Now
+              </div>
+
+              <div class="buy-grid">
+                <div class="buy-card secondary featured">
+                  <a
+                    class="buy-link"
+                  href="https://notionpress.com/in/read/love-loss-and-life"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-ga-action="buy_notionpress_clicked"
+                  data-ga-platform="NotionPress"
+                  data-ga-label="hero_learn_more"
+                >
+                  <div class="featured-pill">
+                    <svg class="icon sm" aria-hidden="true"><use href="#icon-zap"></use></svg>
+                    BEST DEAL
+                  </div>
+                  <div class="buy-head">
+                    <svg class="icon lg" aria-hidden="true"><use href="#icon-award"></use></svg>
+                    <span class="buy-title">NotionPress</span>
+                  </div>
+                  <div class="buy-price-row">
+                    <span class="price">₹175</span>
+                    <span class="price-old">₹299</span>
+                    <span class="discount">42% OFF</span>
+                  </div>
+                  <p class="buy-benefit">✓ Best Price • Delivery included</p>
+                  </a>
+                  <button class="coupon-row" type="button" data-copy-code="LOVELOSS175">
+                    <span class="coupon-icon"><svg class="icon sm" aria-hidden="true"><use href="#icon-award"></use></svg></span>
+                    <span class="coupon-code">LOVELOSS175</span>
+                    <span class="coupon-icon coupon-state" aria-hidden="true"><svg class="icon sm" data-copy-icon><use href="#icon-copy"></use></svg></span>
+                  </button>
+                </div>
+
+                <div class="buy-card primary">
+                  <a
+                    class="buy-link"
+                  href="https://amzn.in/d/4H2hwRy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-ga-action="buy_amazon_clicked"
+                  data-ga-platform="Amazon"
+                  data-ga-label="hero_learn_more"
+                >
+                  <div class="buy-head">
+                    <svg class="icon lg" aria-hidden="true"><use href="#icon-shopping-cart"></use></svg>
+                    <span class="buy-title">Amazon</span>
+                  </div>
+                  <div class="buy-price-row">
+                    <span class="price">₹224</span>
+                    <span class="price-old">₹249</span>
+                    <span class="discount">10% OFF</span>
+                  </div>
+                  <p class="buy-benefit">✓ Prime: Free Delivery • 10% OFF</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="purchase-note">
+              <strong>💡 Pro Tip:</strong>
+              <p style="margin: 0.35rem 0 0;">Use NotionPress with coupon code <span style="font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-weight: 800; color: #fcd34d;">LOVELOSS175</span> to get the best deal and support the author directly!</p>
+            </div>
+
+            <div class="meta-strip">
+              <div class="av-stack" aria-hidden="true">
+                <span class="av"></span>
+                <span class="av"></span>
+                <span class="av"></span>
+                <span class="av"></span>
+              </div>
+              <span>500+ readers • 4.6★ rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="purchase-guide">
+          <h2 class="section-heading" style="margin-bottom: 2rem; font-size: clamp(1.7rem, 4vw, 2.8rem);">How to Get Your Copy</h2>
+          <div class="guide-grid">
+            <div class="guide-step">
+              <div class="step-icon"><svg class="icon md" aria-hidden="true"><use href="#icon-shopping-cart"></use></svg></div>
+              <h3 class="step-title">Choose Your Edition</h3>
+              <p class="step-desc">Pick Amazon for fastest delivery with Prime, or NotionPress for the best price with direct author support</p>
+            </div>
+            <div class="guide-step">
+              <div class="step-icon"><svg class="icon md" aria-hidden="true"><use href="#icon-award"></use></svg></div>
+              <h3 class="step-title">Apply Coupon Code</h3>
+              <p class="step-desc">Use code LOVELOSS175 on NotionPress for maximum savings and support independent publishing</p>
+            </div>
+            <div class="guide-step">
+              <div class="step-icon"><svg class="icon md" aria-hidden="true"><use href="#icon-check"></use></svg></div>
+              <h3 class="step-title">Complete Purchase</h3>
+              <p class="step-desc">Follow the secure checkout process on your chosen platform</p>
+            </div>
+            <div class="guide-step">
+              <div class="step-icon"><svg class="icon md" aria-hidden="true"><use href="#icon-book-open"></use></svg></div>
+              <h3 class="step-title">Receive &amp; Enjoy</h3>
+              <p class="step-desc">Get your copy delivered and start your transformative journey through poetry</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quote-band">
+      <div class="container quote-wrap">
+        <div class="quote-rule"></div>
+        <blockquote class="quote">
+          "Her presence ignited a fire I couldn't contain.<br />
+          <span class="accent">A yearning so fierce it blurred joy and pain.</span>"
+        </blockquote>
+        <div class="quote-rule" style="background: linear-gradient(90deg, transparent, #f472b6, transparent);"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-heading">Why Readers Love This Novel</h2>
+        <div class="cards-grid">
+          <article class="why-card">
+            <div class="feature-icon"><svg class="icon lg" aria-hidden="true"><use href="#icon-heart"></use></svg></div>
+            <h3 class="feature-title">Deeply Emotional</h3>
+            <p class="feature-desc">Raw, authentic poetry and write-ups that speak to the heart and soul of human experience</p>
+          </article>
+          <article class="why-card">
+            <div class="feature-icon" style="background: linear-gradient(135deg, #a855f7, #6366f1);"><svg class="icon lg" aria-hidden="true"><use href="#icon-book-open"></use></svg></div>
+            <h3 class="feature-title">Easy to Read</h3>
+            <p class="feature-desc">Contemporary language that resonates with modern readers of all ages</p>
+          </article>
+          <article class="why-card">
+            <div class="feature-icon" style="background: linear-gradient(135deg, #6366f1, #a855f7);"><svg class="icon lg" aria-hidden="true"><use href="#icon-trending-up"></use></svg></div>
+            <h3 class="feature-title">Transformative</h3>
+            <p class="feature-desc">Poetry that inspires personal growth, healing, and self-discovery</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="stack" style="gap: 2rem;">
+          <h2 class="section-heading">About the Book</h2>
+          <p class="section-subcopy">"Love, Loss, and Life" - A deeply moving story of love, heartbreak, and the quiet strength it takes to live on.</p>
+          <div class="cards-grid">
+            <article class="theme-card">
+              <div class="theme-badge pink-purple">1</div>
+              <h3 class="theme-title">Romance &amp; Love</h3>
+              <p class="theme-desc">Passionate verses exploring desire, connection, and the intoxication of love</p>
+            </article>
+            <article class="theme-card">
+              <div class="theme-badge purple-indigo">2</div>
+              <h3 class="theme-title">Healing &amp; Loss</h3>
+              <p class="theme-desc">Poems that honor grief, validate pain, and guide you toward healing</p>
+            </article>
+            <article class="theme-card">
+              <div class="theme-badge indigo-pink">3</div>
+              <h3 class="theme-title">Growth &amp; Life</h3>
+              <p class="theme-desc">Motivational Novel celebrating resilience, wisdom, and personal transformation</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section">
+      <div class="container">
+        <div class="about-card">
+          <div class="author-avatar">
+            <img src="/book-assets/AImakhanchor.png" alt="Makhanchor (Yogesh Bhavsar)" width="192" height="192" />
+          </div>
+          <div class="author-copy">
+            <h2 class="author-title">About Makhanchor</h2>
+            <p class="about-copy">Yogesh Bhavsar, known as “Makhanchor”, writes poetry and write-ups inspired by personal experiences of love, loss, self-doubt, healing, and quiet hope. His work is rooted in emotional honesty, combining traditional sensitivity with a contemporary voice, appealing to readers seeking reflection over performance. Makhanchor’s words resonate during moments when emotions feel heavy, unspoken, or hard to express, offering comfort and connection to thousands of readers through that shared silence.</p>
+            <div class="social-row">
+              <a class="social-link" href="https://www.instagram.com/the.makhanchor?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" data-ga-action="follow_instagram_clicked" data-ga-platform="Instagram" data-ga-label="author_section" style="background: linear-gradient(90deg, #db2777, #7c3aed); color: #fff; width: auto; min-width: 15rem;">
+                <div class="social-head"><svg class="icon md" aria-hidden="true"><use href="#icon-instagram"></use></svg><span style="font-weight: 700;">Follow on Instagram</span></div>
+              </a>
+              <a class="social-link" href="https://www.youtube.com/@makhanchor646" target="_blank" rel="noopener noreferrer" data-ga-action="follow_youtube_clicked" data-ga-platform="YouTube" data-ga-label="author_section" style="background: rgba(51, 65, 85, 0.95); color: #fff; width: auto; min-width: 13rem;">
+                <div class="social-head"><svg class="icon md" aria-hidden="true"><use href="#icon-youtube"></use></svg><span style="font-weight: 700;">Watch on YouTube</span></div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container" style="max-width: 56rem;">
+        <h2 class="section-heading">Frequently Asked Questions</h2>
+        <div class="faq-wrap" id="faq-root">
+          <div class="faq-item open">
+            <button class="faq-trigger" type="button" aria-expanded="true">
+              <span class="faq-question">What is 'Love, Loss, and Life' about?</span>
+              <svg class="faq-chevron" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+            </button>
+            <div class="faq-panel">
+              <div class="faq-answer">
+                <p>A book focused on love, loss, and life weaves a poignant narrative that explores human emotions. It delves into romantic connections, the heartache of parting, and the resilience needed to navigate existence. Through vivid storytelling, readers experience the joy of new love, the sorrow of loss, and the hope life offers. Characters undergo transformative journeys that challenge their perceptions and foster growth, highlighting the beauty and fragility of life. This exploration of universal themes invites readers to reflect on their own experiences.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <span class="faq-question">Who is this book for?</span>
+              <svg class="faq-chevron" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+            </button>
+            <div class="faq-panel">
+              <div class="faq-answer">
+                <p>This book is for anyone who has loved deeply, experienced loss, or is on a journey of self-discovery. Whether you're navigating a relationship, healing from heartbreak, or seeking motivation, these poems offer companionship and understanding.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <span class="faq-question">What makes this novel unique?</span>
+              <svg class="faq-chevron" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+            </button>
+            <div class="faq-panel">
+              <div class="faq-answer">
+                <p>Written by Makhanchor (Yogesh Bhavsar), this book blends contemporary style with timeless emotions. The poems are raw, relatable, and crafted to resonate with modern readers who seek authenticity in art.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <span class="faq-question">Which platform should I buy from?</span>
+              <svg class="faq-chevron" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+            </button>
+            <div class="faq-panel">
+              <div class="faq-answer">
+                <p>Amazon is perfect for fastest delivery with Prime eligibility and convenience. NotionPress offers the best price at ₹175 AND includes the coupon code LOVELOSS175 for additional savings, plus direct support for the independent author. Choose NotionPress to directly support Makhanchor!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <span class="faq-question">How do I use the coupon code LOVELOSS175?</span>
+              <svg class="faq-chevron" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+            </button>
+            <div class="faq-panel">
+              <div class="faq-answer">
+                <p>Simply go to NotionPress, add the book to your cart, and enter the coupon code LOVELOSS175 at checkout. The discount will be automatically applied, giving you the best possible price while supporting the author directly.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <span class="faq-question">Can I gift this book?</span>
+              <svg class="faq-chevron" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+            </button>
+            <div class="faq-panel">
+              <div class="faq-answer">
+                <p>Absolutely! 'Love, Loss, and Life' makes a thoughtful gift for poetry lovers, book clubs, or anyone experiencing major life transitions. Both platforms offer gift options and easy digital delivery.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-trigger" type="button" aria-expanded="false">
+              <span class="faq-question">Is this book available internationally?</span>
+              <svg class="faq-chevron" aria-hidden="true"><use href="#icon-chevron-down"></use></svg>
+            </button>
+            <div class="faq-panel">
+              <div class="faq-answer">
+                <p>Yes! The book is available for international shipping.</p>
+                <p><strong>Order from:</strong></p>
+                <ul>
+                  <li><a href="https://a.co/d/hhwzXlh" target="_blank" rel="noopener noreferrer">Amazon.com (Worldwide)</a></li>
+                  <li><a href="https://www.barnesandnoble.com/w/love-loss-and-life-yogesh-bhavsar/1147025903" target="_blank" rel="noopener noreferrer">Barnes &amp; Noble (US/International)</a></li>
+                </ul>
+                <p>Also Check options on NotionPress Website for India and other countries.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta-shell">
+        <h2 class="cta-title">Begin Your Journey Today</h2>
+        <p class="cta-copy">Join thousands of readers who have found solace, inspiration, and connection in these pages. Let these words be your companion through the beautiful chaos of being human.</p>
+        <div class="cta-buttons">
+          <div class="buy-card secondary featured" style="max-width: 18rem; margin: 0 auto;">
+            <a
+              class="buy-link"
+            href="https://notionpress.com/in/read/love-loss-and-life"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-ga-action="buy_notionpress_clicked"
+            data-ga-platform="NotionPress"
+            data-ga-label="footer_cta"
+          >
+            <div class="featured-pill">
+              <svg class="icon sm" aria-hidden="true"><use href="#icon-zap"></use></svg>
+              BEST DEAL
+            </div>
+            <div class="buy-head">
+              <svg class="icon lg" aria-hidden="true"><use href="#icon-award"></use></svg>
+              <span class="buy-title">NotionPress</span>
+            </div>
+            <div class="buy-price-row">
+              <span class="price">₹175</span>
+              <span class="price-old">₹299</span>
+              <span class="discount">42% OFF</span>
+            </div>
+            <p class="buy-benefit">✓ Best Price • Delivery included</p>
+            </a>
+            <button class="coupon-row" type="button" data-copy-code="LOVELOSS175">
+              <span class="coupon-icon"><svg class="icon sm" aria-hidden="true"><use href="#icon-award"></use></svg></span>
+              <span class="coupon-code">LOVELOSS175</span>
+              <span class="coupon-icon coupon-state" aria-hidden="true"><svg class="icon sm" data-copy-icon><use href="#icon-copy"></use></svg></span>
+            </button>
+          </div>
+
+          <div class="buy-card primary" style="max-width: 18rem; margin: 0 auto;">
+            <a
+              class="buy-link"
+            href="https://amzn.in/d/4H2hwRy"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-ga-action="buy_amazon_clicked"
+            data-ga-platform="Amazon"
+            data-ga-label="footer_cta"
+          >
+            <div class="buy-head">
+              <svg class="icon lg" aria-hidden="true"><use href="#icon-shopping-cart"></use></svg>
+              <span class="buy-title">Amazon</span>
+            </div>
+            <div class="buy-price-row">
+              <span class="price">₹224</span>
+              <span class="price-old">₹249</span>
+              <span class="discount">10% OFF</span>
+            </div>
+            <p class="buy-benefit">✓ Prime: Free Delivery • 10% OFF</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="footer-copy">© 2025 Makhanchor (Yogesh Bhavsar). All rights reserved. | Novel: Love, Loss, and Life</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    function gaEvent(action, params) {
+      if (typeof window === 'undefined') return;
+      if (typeof window.gtag !== 'function') return;
+      window.gtag('event', action, params || {});
+    }
+
+    function trackElementClick(element) {
+      var action = element.getAttribute('data-ga-action');
+      if (!action) return;
+      var params = {};
+      var platform = element.getAttribute('data-ga-platform');
+      var label = element.getAttribute('data-ga-label');
+      if (platform) params.platform = platform;
+      if (label) params.label = label;
+      gaEvent(action, params);
+    }
+
+    document.querySelectorAll('[data-ga-action]').forEach(function (element) {
+      element.addEventListener('click', function (event) {
+        if (event.defaultPrevented) return;
+        if (event.target && event.target.closest && event.target.closest('[data-copy-code]')) return;
+        trackElementClick(element);
+      });
+    });
+
+    function setCouponCopied(button, copied) {
+      button.dataset.copied = copied ? 'true' : 'false';
+      var icon = button.querySelector('[data-copy-icon] use');
+      if (icon) {
+        icon.setAttribute('href', copied ? '#icon-check' : '#icon-copy');
+      }
+    }
+
+    function handleCouponCopy(button) {
+      var code = button.getAttribute('data-copy-code');
+      if (!code) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).catch(function () {});
+      }
+      setCouponCopied(button, true);
+      gaEvent('coupon_code_copied', { coupon_code: code });
+      window.setTimeout(function () {
+        setCouponCopied(button, false);
+      }, 2000);
+    }
+
+    document.querySelectorAll('[data-copy-code]').forEach(function (button) {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        handleCouponCopy(button);
+      });
+      button.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          handleCouponCopy(button);
+        }
+      });
+    });
+
+    document.querySelectorAll('.faq-item').forEach(function (item) {
+      var trigger = item.querySelector('.faq-trigger');
+      if (!trigger) return;
+      trigger.addEventListener('click', function () {
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(function (other) {
+          other.classList.remove('open');
+          var otherTrigger = other.querySelector('.faq-trigger');
+          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+        gaEvent('faq_item_clicked', {
+          question: trigger.querySelector('.faq-question') ? trigger.querySelector('.faq-question').textContent : '',
+          label: 'faq_section',
+          name: trigger.querySelector('.faq-question') ? trigger.querySelector('.faq-question').textContent : ''
+        });
+      });
+    });
+  </script>
+</body>
+</html>
