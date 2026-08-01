@@ -93,65 +93,89 @@ export default function ChapterPreview({ isOpen, onClose }: ChapterPreviewProps)
   const paragraphs = [
     {
       type: 'chapter-title',
-      text: 'Chapter One'
+      text: `Chapter One`
     },
     {
       type: 'chapter-heading',
-      text: 'The Wet Raincoat Pocket'
+      text: `TO KNOW LOVE: ECHOES OF A SILENT VOLCANO`
     },
     {
       type: 'narrative',
-      text: 'It is three in the morning when the sky finally decides to weep. Pune has a way of storing its grief in the clouds until the streets are entirely empty, letting the rain fall only when there is no one left to watch it happen.'
+      text: `The thing about love is that everyone believes it’s about themselves and their partner. Yet, when we dive into books, poems, and the countless narrations of love stories, one thing remains consistent—a feeling so profound that it separates love from fleeting emotions like infatuation or the poetic Sahar in Urdu. No matter how many books you read, love cannot truly be understood through words alone. Real love is lived, felt, and endured. That’s why this chapter is not just about reading—it’s about experiencing what love does to a soul.`
     },
     {
       type: 'narrative',
-      text: 'Our boy sat at his vintage wooden desk, the window pane catching the first silver drops of the storm. In front of him sat a dark green notebook, its edges worn down from hours of nervous handling. He didn’t write yet. Instead, his fingers tracing the gold foil lettering on the front cover, he closed his eyes and let his mind slip back to a Tuesday afternoon that refused to fade.'
+      text: `Life before love is like a dormant volcano. Everything seems to be in place, yet something essential is missing. You live each moment, but it passes through your fingers like sand. You attend school, learn science, and grow into adulthood, but no one prepares you for how love will strike—not your body, but your heart—with the force of a lightning bolt.`
     },
     {
       type: 'narrative',
-      text: 'It had been raining then too. The kind of heavy, sudden monsoon downpour that catches you unprepared on the sidewalk, forcing strangers under the narrow cloth awnings of tea stalls.'
+      text: `In college, life feels like a series of fleeting moments: the laughter of friends, the pranks, the endless assignments, and the obsession with movies, shows, and maybe anime, if you’re wired like me. You see couples around you and secretly hope for the same. You dream of the One—someone who will fill the emptiness you’ve carried and choose you repeatedly.`
     },
     {
       type: 'narrative',
-      text: 'She had run under the awning laughing, shaking water from her dark hair. Her shoulder had brushed against his—briefly, purely by accident. He had frozen, holding his breath, afraid that the slightest movement would break the sudden magic of her proximity.'
+      text: `Friendship offers company, but often, betrayal leaves scars. Family love is divine, yet it never quite quenches that desire for something more profound – a connection that defies explanation, a bond that feels destined.`
+    },
+    {
+      type: 'narrative',
+      text: `You know the concept of this love, but you’ve never dared to imagine it honestly. You’ve only read about it, watched it unfold on screens, or glimpsed it in stolen kisses in a movie. Then, one day, something changes as you walk across the empty campus.`
+    },
+    {
+      type: 'narrative',
+      text: `You sit with a book or skim another article about love—either glorifying it or mocking it. But that’s when something remarkable happens: you see her (or) him—sitting beneath a large tree, laughing with friends. Then, as if the universe conspired for this moment, they turn and look at you. And that’s it—a fleeting glance. Yet, your heart, once steady, is now an unsteady drum.`
+    },
+    {
+      type: 'narrative',
+      text: `All the biology you’ve learned about the human body instantly dissolves. You’re no longer the person you were a moment ago. The days that follow are no longer ordinary. Your college campus transforms into a stage, and you are the centre of every act. You linger in places where you know you might see them again.`
+    },
+    {
+      type: 'narrative',
+      text: `The most straightforward smile on their face feels like sunshine, and suddenly, life feels brighter. You replay memories of that glance. You analyse every action and every rumour you hear about them, weaving their essence into the fabric of your days. You try to bring them into your conversations—subtly, of course, because openly confessing feels like baring your soul to a storm.`
+    },
+    {
+      type: 'narrative',
+      text: `To outsiders, it’s easy to say, ‘Just talk to them’. But they don’t understand. You can’t even look into their eyes without your entire world tilting off its axis. This is where love begins—not with grand gestures or poetic confessions, but with a quiet longing. A longing so gentle yet profound, it etches itself into your heart. It’s not yet love in its purest form, but it’s something more than a crush. The spark sets your soul alight, a melody only your heart can hear. To know love is to understand this feeling—the ache, the hope, and the beauty of simply wanting someone to be part of your world.`
+    },
+    {
+      type: 'narrative',
+      text: `He wrote in his notebook:`
     },
     {
       type: 'poem-block',
       lines: [
-        "I still carry that rain in my coat,",
-        "a cold heavy circle in my right-hand pocket,",
-        "where your fingers once rested,",
-        "by mistake, for three blocks.",
+        "They told me stories of love, where no battles were ever fought,",
+        "But my heart was barren, ruined by summers, or so I thought.",
+        "Everyone claimed their love was true, their victory assured,",
+        "Yet I doubted—let me explore the bloodless history they endured.",
         "",
-        "I refuse to dry the wool.",
-        "Let the water rot the threads;",
-        "some weights are warmer than being free,",
-        "and some rains never learn to clear."
+        "They spoke of women in tones so unfair, as if her life held no scope beyond her despair.",
+        "Still, they said love was essential, the axis of life,",
+        "and I, so carefree, dreamed she’d be my wife.",
+        "",
+        "This all began in a dream, her eyes meeting mine.",
+        "The gods were enraged, and the storm clouds aligned.",
+        "The world outside was dangerous; the skies filled with dread.",
+        "But my heart soared to a place where only love is bred.",
+        "",
+        "In my dream, knowing her felt like fate’s grand design.",
+        "Yet it faded to a whisper, a fictional shrine.",
+        "I woke to the sun, coffee in hand, on my balcony’s edge.",
+        "It was a dream but profound—I had to honour its pledge.",
+        "",
+        "At dawn, I ran to the private classes she often attends",
+        "to find her laughing softly among her friends.",
+        "She glanced at me, puzzled, “Why is this boy here today?”",
+        "But who could guess what my heart was trying to convey?",
+        "",
+        "A feeling stirred, unfamiliar, profound;",
+        "once lost in darkness, now in her, my light was found.",
+        "Her presence ignited a fire I couldn’t contain.",
+        "A yearning so fierce it blurred joy and pain.",
+        "",
+        "Was it love or a spark destined to fade?",
+        "I chased her shadow, drawn to the promise it made.",
+        "In her eyes, it was a universe I longed to explore.",
+        "A story unfinished—one I craved to know more about."
       ]
-    },
-    {
-      type: 'narrative',
-      text: 'She had slipped her hand into his right-hand raincoat pocket, searching for shelter from the biting cold wind. Her fingers had met his. For three blocks, they walked in complete silence, the rhythm of their footsteps matching the rain hitting the pavement. He didn’t dare look at her. He didn’t dare speak.'
-    },
-    {
-      type: 'narrative',
-      text: 'He knew, even then, that it was a mistake. A sweet, momentary misunderstanding born of cold weather and a shared umbrella. She was thinking of someone else, of a future he had no part in. But his heart, hopelessly romantic and tragically stubborn, didn’t care about logic.'
-    },
-    {
-      type: 'narrative',
-      text: 'By the time they reached her gate, she had pulled her hand away with a soft, apologetic smile. "Thanks for the umbrella," she’d said, her voice vanishing into the sound of the wind.'
-    },
-    {
-      type: 'narrative',
-      text: 'And that was it. She went inside, and he walked back alone.'
-    },
-    {
-      type: 'narrative',
-      text: 'Now, months later, the raincoat still hung on the peg behind his door. It was completely dry, but to him, that right pocket remained forever damp, heavy with the weight of unrequited hope.'
-    },
-    {
-      type: 'narrative',
-      text: 'He dipped his pen in the black ink. The clock ticked. 3:15 a.m. The battle of expectations had begun. He started to write...'
     }
   ];
 

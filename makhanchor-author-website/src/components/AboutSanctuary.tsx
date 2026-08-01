@@ -166,14 +166,25 @@ export default function AboutSanctuary() {
               <span className="text-sm font-bold tracking-widest uppercase">CONNECT ON INSTAGRAM</span>
               <ChevronRight className="w-4 h-4" />
             </div>
-            <a
-              href="https://www.instagram.com/makhanchor.in/"
-              target="_blank"
-              rel="noreferrer"
-              className="font-mono text-sm text-white/80 hover:text-white hover:underline flex items-center space-x-1.5"
-            >
-              <span>@makhanchor.in</span>
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="https://www.instagram.com/scripted_by_yogesh/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-mono text-sm text-white/80 hover:text-brand-coral hover:underline flex items-center space-x-1.5"
+              >
+                <span>Author: @scripted_by_yogesh</span>
+              </a>
+              <span className="text-white/20 hidden sm:inline">|</span>
+              <a
+                href="https://www.instagram.com/the.makhanchor/"
+                target="_blank"
+                rel="noreferrer"
+                className="font-mono text-sm text-white/80 hover:text-brand-coral hover:underline flex items-center space-x-1.5"
+              >
+                <span>Personal: @the.makhanchor</span>
+              </a>
+            </div>
           </div>
         </div>
 
@@ -191,15 +202,15 @@ export default function AboutSanctuary() {
             </div>
 
             {/* Category Selectors */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2.5">
               {(['all', 'healing', 'unrequited', 'hope'] as const).map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedPoemCategory(cat)}
-                  className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase border transition-all cursor-pointer ${
+                  className={`px-4.5 py-2 rounded-full text-[11px] font-bold uppercase tracking-wider border transition-all cursor-pointer ${
                     selectedPoemCategory === cat
-                      ? 'bg-brand-coral text-white border-brand-coral'
-                      : 'border-white/10 text-white/50 hover:text-white hover:border-white/20'
+                      ? 'bg-brand-coral text-white border-brand-coral shadow-md'
+                      : 'border-white/10 text-white/60 hover:text-white hover:border-white/20'
                   }`}
                 >
                   {cat}

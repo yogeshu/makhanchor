@@ -14,6 +14,8 @@ interface BookCoverProps {
 export default function BookCover({ className = '', src = '' }: BookCoverProps) {
   const [hasError, setHasError] = useState(false);
 
+  // We default to the local downloaded high-quality cover from Amazon,
+  // or allow overrides via the src prop.
   // Default to the local hero cover image, while still allowing overrides via src.
   const imageSrc = src || heroLoveLossAndLifeCover;
 

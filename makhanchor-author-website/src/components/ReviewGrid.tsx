@@ -188,35 +188,56 @@ export default function ReviewGrid() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 sm:px-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4 sm:px-0">
             {[
               {
                 id: 'moment-1',
-                imageUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&h=800&q=80',
-                caption: 'In my hands, in my heart. ✨',
-                location: 'Shared by Priyanshi',
+                imageUrl: '/screenshot-1.png',
+                caption: 'Love, Loss and Life styled beautifully. 📖✨',
+                location: 'Instagram Review',
                 rotation: '-rotate-2'
               },
               {
                 id: 'moment-2',
-                imageUrl: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?auto=format&fit=crop&w=600&h=800&q=80',
-                caption: 'Cozy Sundays & Coffee ☕',
-                location: 'Shared by Aman',
+                imageUrl: '/screenshot-2.png',
+                caption: 'Deeply touching page dedication. 🌸',
+                location: 'Instagram Review',
                 rotation: 'rotate-3'
               },
               {
                 id: 'moment-3',
-                imageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&h=800&q=80',
-                caption: 'The perfect 3 a.m. companion. 🌙',
-                location: 'Shared by Neha',
+                imageUrl: '/screenshot-3.png',
+                caption: 'Every word resonates deeply. 💚',
+                location: 'Instagram Review',
                 rotation: '-rotate-1'
               },
               {
                 id: 'moment-4',
-                imageUrl: 'https://images.unsplash.com/photo-1491849748645-30e419652b41?auto=format&fit=crop&w=600&h=800&q=80',
-                caption: 'Every single page speaks to me. 📖',
-                location: 'Shared by Rahul',
+                imageUrl: '/screenshot-4.png',
+                caption: 'Cozy 3 a.m. aesthetic & candle light. 🕯️💙',
+                location: 'Instagram Review',
                 rotation: 'rotate-2'
+              },
+              {
+                id: 'moment-5',
+                imageUrl: '/screenshot-5.png',
+                caption: 'Accompanied by beautiful green nature. 🍃✍️',
+                location: 'Instagram Review',
+                rotation: '-rotate-3'
+              },
+              {
+                id: 'moment-6',
+                imageUrl: '/screenshot-6.png',
+                caption: 'Lost in the magic of the pages. 🌳📖',
+                location: 'Instagram Review',
+                rotation: 'rotate-1'
+              },
+              {
+                id: 'moment-7',
+                imageUrl: '/screenshot-7.png',
+                caption: 'Perfect flat lay setup with cozy vibes. ☁️✨',
+                location: 'Instagram Review',
+                rotation: '-rotate-2'
               }
             ].map((moment) => (
               <motion.div

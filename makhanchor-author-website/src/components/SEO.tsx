@@ -40,14 +40,15 @@ export default function SEO({ title, description, activeBlog, activeTab }: SEOPr
 
     document.title = displayTitle;
 
-    // 2. Update Meta Description
+    // 2. Update Meta Description (use a shorter content for SERP while keeping full OG description)
     let metaDesc = document.querySelector('meta[name="description"]');
     if (!metaDesc) {
       metaDesc = document.createElement('meta');
       metaDesc.setAttribute('name', 'description');
       document.head.appendChild(metaDesc);
     }
-    metaDesc.setAttribute('content', displayDesc);
+    const shortDesc = displayDesc.length > 155 ? displayDesc.slice(0, 152) + '...' : displayDesc;
+    metaDesc.setAttribute('content', shortDesc);
 
     // Helper to find or create and update a meta tag by property or name
     const updateMetaTag = (attributeName: 'property' | 'name', attributeValue: string, contentValue: string) => {
@@ -79,6 +80,21 @@ export default function SEO({ title, description, activeBlog, activeTab }: SEOPr
     updateMetaTag('name', 'twitter:title', displayTitle);
     updateMetaTag('name', 'twitter:description', displayDesc);
     updateMetaTag('name', 'twitter:image', currentImage);
+    // Add Twitter attribution tags
+    updateMetaTag('name', 'twitter:site', '@the.makhanchor');
+    updateMetaTag('name', 'twitter:creator', '@scripted_by_yogesh');
+
+    // Ensure a canonical link is present and points to the current URL
+    let canonicalLink = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', currentUrl);
+
+    // Ensure robots meta exists
+    updateMetaTag('name', 'robots', 'index,follow');
 
     // 3. Inject JSON-LD Schema
     const oldSchemas = document.querySelectorAll('script[type="application/ld+json"]');
@@ -93,8 +109,9 @@ export default function SEO({ title, description, activeBlog, activeTab }: SEOPr
       'name': 'Makhanchor',
       'url': 'https://www.makhanchor.in/',
       'sameAs': [
-        'https://www.instagram.com/makhanchor.in/',
-        'https://www.youtube.com/c/makhanchor'
+        'https://www.instagram.com/scripted_by_yogesh/',
+        'https://www.instagram.com/the.makhanchor/',
+        'https://www.youtube.com/@makhanchor646'
       ],
       'jobTitle': 'Poet & Author',
       'description': 'A voice for romantic poetry, one-sided love, healing, and heartfelt stories.'

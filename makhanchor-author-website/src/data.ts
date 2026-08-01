@@ -8,182 +8,208 @@ import { BlogPost, Review, Reel } from './types';
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'blog-1',
-    category: 'LOVE & LIFE',
-    title: 'The Belonging',
-    subtitle: 'Moments that precede the breaking of ones solitude, where belonging is felt even when unspoken.',
-    slug: 'the-belonging',
-    excerpt: "But love is not a simple declaration—it is a silent upheaval...",
-    date: 'June 28, 2026',
+    category: 'REFLECTIONS',
+    title: "Maybe It's the Weather",
+    subtitle: 'Struggling to put transient emotions into words.',
+    slug: 'maybe-its-the-weather',
+    excerpt: "Maybe it's the weather. Maybe I'm thinking about the past I never truly had the chance to live...",
+    date: 'July 12, 2026',
     readTime: '2 min read',
     imageUrl: 'https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?auto=format&fit=crop&w=600&h=800&q=80',
     content: [
-      "You know now what it is to be in love and to say, with pride and vulnerability, that someone has captured your heart. But love is not a simple declaration—it is a silent upheaval, a transformation often unnoticed by the world.",
-      "This chapter is not about the change love brings but about the moments that precede the breaking of one's solitude, where belonging is felt even when it's unspoken.",
-      "Our boy, hopelessly romantic and entirely unaware of what the future holds, finds himself entangled in thoughts of her."
+      "Maybe it's the weather. Maybe I'm thinking about the past I never truly had the chance to live.",
+      "My days are full. I keep myself occupied with work, goals, and responsibilities. Yet somehow, I can never completely detach from those thoughts. They always find their way back.",
+      "I think I need to understand myself more. But life feels strangely complicated right now.",
+      "I want to be happy while I'm actually living a happy life. Why is that so difficult?",
+      "Sometimes I wonder...",
+      "Do I simply want love?",
+      "Or do I need it?",
+      "I can't even explain what I'm feeling.",
+      "For the first time in a long time, I'm struggling to put my emotions into words.",
+      "— Yogesh"
     ]
   },
   {
     id: 'blog-2',
-    category: 'HEALING',
-    title: 'The Duality of Healing',
-    subtitle: 'Why night brings a relentless tide of loneliness, and the journal becomes a sanctuary.',
-    slug: 'the-duality-of-healing',
-    excerpt: 'Love can be anything, but expectations—they are the weakness that breaks us...',
-    date: 'May 14, 2026',
-    readTime: '3 min read',
+    category: 'LOVE & LIFE',
+    title: 'Successful Lovebirds',
+    subtitle: 'How two people find each other and keep the spark alive.',
+    slug: 'successful-lovebirds',
+    excerpt: "I'm yet to understand how two people find each other, how they go on dates, how they approach one another...",
+    date: 'July 08, 2026',
+    readTime: '2 min read',
     imageUrl: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&h=800&q=80',
     content: [
-      "During the day, the boy felt composed, his time filled with acts of self-discovery and growth. He read religious books and trusted in karma, believing that everything would eventually find its place.",
-      "But when night fell, it brought with it a relentless tide of loneliness. The stillness of 3 a.m. became his battlefield when suppressed feelings surged forth, unrelenting and raw.",
-      "Tears would stain his pillow, his screams stifled by the need to maintain a facade of normalcy. He could not let his family see his pain. Instead, his journal became his sanctuary. By moonlight, he poured his heart onto pages, his words the only witnesses to his anguish.",
-      "'Love can be anything,' he wrote one night. 'But expectations—they are the weakness that breaks us. True love must learn to let go, to give without conditions, to accept without needing validation.'"
+      "I'm yet to understand how two people find each other, how they go on dates, how they approach one another, and how they know it's real.",
+      "I'm not talking about those couples who spent their entire college life together and then cry about \"gharwale nahi maane.\"",
+      "I'm talking about the successful lovebirds—the ones who still haven't lost their spark even after marriage.",
+      "How?",
+      "What god did you pray to?",
+      "Either I'm operating on a completely different level from ordinary humans...",
+      "or I'm simply too unlucky to understand any of this.",
+      "All credits @the.makhanchor (yogesh)"
     ]
   },
   {
     id: 'blog-3',
     category: 'POETRY',
-    title: 'The Weight of Moving On',
-    subtitle: 'When the writing shifts. It is no longer about her. It is about him.',
-    slug: 'the-weight-of-moving-on',
-    excerpt: 'She speaks with her eyes, and only I understand the language they hold...',
-    date: 'April 02, 2026',
-    readTime: '4 min read',
+    title: 'Unconditional Love & The Moon’s Dream',
+    subtitle: 'Living love raw and unfiltered, without walls or boundaries.',
+    slug: 'unconditional-love',
+    excerpt: 'At least I truly understand love and the ache it leaves behind. I don’t weave imaginary words...',
+    date: 'July 01, 2026',
+    readTime: '2 min read',
     imageUrl: 'https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&h=800&q=80',
     mostLoved: true,
     content: [
-      "He poured his emotions into words, hoping to untangle the mess within. But this time, his writing shifted. It was no longer about her. It was about him. About healing. About finding closure.",
-      "Still, old habits die hard. One day, he stumbled across an old write-up he had penned for her:",
-      "'She speaks with her eyes, and only I understand the language they hold. In the depths of those unspoken words, I find myself craving more—not just her presence, but the quiet secrets, the universe only she knows.'",
-      "'Her gaze is filled with stories of stars that dare to dance alone, of whispers that travel through galaxies, and of angels that linger unseen. Her eyes are like an uncharted world, a boundless truth trying to anchor me, to keep me from unravelling the fragile threads of reality. She is my peace, the reason the world feels gentle, as though her quiet strength alone could still the chaos in all of us.'",
-      "Could someone who wrote such words move on quickly? The answer was clear."
-    ]
-  },
-  {
-    id: 'blog-4',
-    category: 'REFLECTIONS',
-    title: 'Forgiveness and Freedom',
-    subtitle: 'Releasing both of you: her from expectations, and yourself from regret.',
-    slug: 'forgiveness-and-freedom',
-    excerpt: 'Acceptance didn\'t come quickly. It required him to confront his deepest wounds...',
-    date: 'March 19, 2026',
-    readTime: '3 min read',
-    imageUrl: 'https://images.unsplash.com/photo-1505236851219-540722df1206?auto=format&fit=crop&w=600&h=800&q=80',
-    content: [
-      "Acceptance didn't come quickly. It required him to confront his deepest wounds and, most importantly, to forgive—not only the girl who had unknowingly caused his heartbreak but also himself. He had waged an internal war for months, blaming his heart for feeling too deeply and his mind for replaying memories in endless loops.",
-      "But then, clarity began to dawn. He realized the girl wasn't responsible for his pain; her indifference wasn't cruelty. It was simply her truth.",
-      "Just as his love reflected his reality, her lack of reciprocation reflected hers. Forgiveness became his means of releasing them both—her from unspoken expectations and himself from the chains of regret."
-    ]
-  },
-  {
-    id: 'blog-5',
-    category: 'REFLECTIONS',
-    title: 'Words as Healing',
-    subtitle: 'Love isn\'t about possessing someone; it\'s about becoming someone.',
-    slug: 'words-as-healing',
-    excerpt: 'True love is a force that can bring life to a desert...',
-    date: 'February 10, 2026',
-    readTime: '3 min read',
-    imageUrl: 'https://images.unsplash.com/photo-1511108690759-009324a90311?auto=format&fit=crop&w=600&h=800&q=80',
-    content: [
-      "The boy's journal entries became his refuge and a tool for reflection. One evening, he wrote:",
-      "'Love isn't about possessing someone; it's about becoming someone. It's about growing into the kind of person who can love deeply, even without guarantees. True love isn't defined by physical touch or the need to hold someone close.'",
-      "'It's magical—a force that can bring life to a desert and joy to the darkest corners of the heart.'",
-      "These words, scribbled late at night, gave him the strength to face another day. Gradually, his anguish began to transform into wisdom, heartbreak into resilience."
+      "At least I truly understand love and the ache it leaves behind. I don’t weave imaginary words to console others; I live love, raw and unfiltered, without walls or boundaries. Even when others urge me to let go, calling it unattainable, I hold on fiercely.",
+      "I make the moon dare to dream of shining brighter than the sun, proving that even the impossible can crave the extraordinary.",
+      "#love #unconditionallove"
     ]
   }
 ];
 
-export const REVIEWS: Review[] = [
+export const AmazonReviews = [
   {
-    id: 'rev-1',
-    name: 'Aanya Sharma',
-    rating: 5,
-    review: "This novel felt like someone had sneaked into my personal journal and turned my most private heartaches into a beautiful story. The transition of the boy's emotions from intense unrequited love to healing and self-discovery is written with so much raw vulnerability. I cried, I smiled, and I finally felt understood. Highly recommended!",
-    date: '2 weeks ago',
-    location: 'Mumbai, India',
-    source: 'amazon'
+    "name": "Rashmi (Bookish_maa)",
+    "platform": "Amazon",
+    "rating": 5,
+    "quote": "A thought-provoking and emotionally resonant narrative that beautifully balances light and dark moments. A powerful reminder of the human capacity for love, resilience, and growth that lingers long after you finish reading."
   },
   {
-    id: 'rev-2',
-    name: 'Rohan Mehta',
-    rating: 5,
-    review: "I have never been much of a novel reader, but Yogesh's words hit different. He captures the exact nuance of loving someone silently and the immense weight of holding on. The concept of 3 a.m. loneliness, expectations, and ultimate forgiveness is portrayed beautifully. 'Love, Loss and Life' is a masterpiece of modern romantic fiction.",
-    date: '1 month ago',
-    location: 'Delhi, India',
-    source: 'goodreads'
+    "name": "Karishmita Das",
+    "platform": "Amazon",
+    "rating": 4,
+    "quote": "A soul-stirring read for anyone dealing with one-sided love. The author's raw honesty makes this book feel like a close friend, reminding you that you're not alone and that healing is possible."
   },
   {
-    id: 'rev-3',
-    name: 'Kavya Nair',
-    rating: 5,
-    review: "A soft, beautiful balm for a grieving soul. The letters, the journal format, the raw 3 a.m. emotions... everything about this book is crafted with pure love. It teaches you that true love isn't about possessing someone, but growing into a better version of yourself. I read it cover to cover in one sitting!",
-    date: '3 days ago',
-    location: 'Bangalore, India',
-    source: 'amazon'
+    "name": "Anchal Agarwal",
+    "platform": "Amazon",
+    "rating": 5,
+    "quote": "An honest and emotionally touching book that presents love as it truly is—raw, confusing, and deeply meaningful. The poems and shayaris add beautiful depth while reminding us that every heartbreak teaches us something valuable."
   },
   {
-    id: 'rev-4',
-    name: 'Arjun Verma',
-    rating: 5,
-    review: "Some lines hit so close to home that I had to close the book and just breathe for a few minutes. Yogesh captures the exact nuances of loving someone silently and the weight of holding on. The story of the boy under the umbrella in the rain, confronting his expectations, is so relatable. It is a slow, therapeutic burn.",
-    date: '3 weeks ago',
-    location: 'Pune, India',
-    source: 'goodreads'
+    "name": "Priya",
+    "platform": "Amazon",
+    "rating": 5,
+    "quote": "A poignant masterpiece that explores the complexities of love with honesty and vulnerability. It's more than a love story—it's a reminder of how fragile and beautiful human connections can be."
   },
   {
-    id: 'rev-5',
-    name: 'Priya Patel',
-    rating: 5,
-    review: "Simply beautiful. It feels like a late-night conversation with a best friend who knows exactly how much your heart is aching and gently guides you back to healing. The theme of forgiveness—not just of others, but of yourself—is incredibly powerful. A beautiful debut novel.",
-    date: '2 months ago',
-    location: 'Ahmedabad, India',
-    source: 'amazon'
+    "name": "Meena",
+    "platform": "Amazon",
+    "rating": 5,
+    "quote": "A heart-opening book that made me both laugh and cry. It beautifully shows that love isn't about what you expect, but what you give. Every person who has experienced one-sided love should read this."
   },
   {
-    id: 'rev-6',
-    name: 'Siddharth Roy',
-    rating: 5,
-    review: "The formatting of the journal entries and the letters in the book add an extra layer of emotion. The contrast between his composed daytime life and raw 3 a.m. battles is stunningly authentic. An absolute treasure on my bookshelf that I will revisit for years.",
-    date: '1 week ago',
-    location: 'Kolkata, India',
-    source: 'goodreads'
+    "name": "Samiksha Gaur",
+    "platform": "Amazon",
+    "rating": 5,
+    "quote": "A beautiful, soul-touching read filled with raw vulnerability and poetic writing. It gently shows how one-sided love can break you, heal you, and teach you the importance of self-love."
   }
+];
+
+export const GoodreadsReviews = [
+  {
+    "name": "Rutuja",
+    "rating": 5,
+    "quote": "Love, Loss, and Life is a beautifully written book that really touched my heart. The way Yogesh Bhavsar weaves poetry into the narrative adds such a unique and emotional depth to the story... It's a short read, but it lingers with you long after you finish. A lovely blend of emotion and poetry."
+  },
+  {
+    "name": "Reyan",
+    "rating": 5,
+    "quote": "Each page felt like a mirror reflecting my own emotions... The author writes with honesty and softness that makes you feel less alone in your own journey... It's a comforting read for anyone who's ever had their heart broken."
+  },
+  {
+    "name": "Read with me",
+    "rating": 5,
+    "quote": "Love, Loss and Life feels less like a story and more like reading someone's private notebook... Some books end when you close them. This one stays—softly breaking and healing your heart at the same time."
+  },
+  {
+    "name": "May",
+    "rating": 5,
+    "quote": "The Hindi poems and shayari woven into the story add so much depth... It feels honest. Heartbreak doesn't end you—it shapes you... A short read, but emotionally heavy in the best way."
+  },
+  {
+    "name": "Khushi",
+    "rating": 5,
+    "quote": "This book beautifully explores one-sided love and the painful yet necessary journey of healing and moving on... Overall, this story is perfect for readers who want to experience love from the perspective of a boy who changes deeply without ever expressing his feelings."
+  },
+  {
+    "name": "Krutika Gor",
+    "rating": 4,
+    "quote": "Love, Loss and Life is a heartfelt exploration of love, heartbreak, healing, and self-discovery. What I appreciated most was the honesty with which the author portrays human emotions. Healing is messy, growth is gradual, and every ending leaves behind a lesson."
+  },
+  {
+    "name": "Abinaya Annadurai",
+    "rating": 4,
+    "quote": "It was good to see the journey from immaturity to maturity in understanding love. The poems and shayaris make the book even more engaging. A beautiful reminder that life is about new beginnings and finding strength after heartbreak."
+  }
+];
+
+export const REVIEWS: Review[] = [
+  ...AmazonReviews.map((rev, idx) => ({
+    id: `amazon-extra-${idx}`,
+    name: rev.name,
+    rating: rev.rating,
+    review: rev.quote,
+    date: 'Verified Buyer',
+    location: 'Amazon Verified',
+    source: 'amazon' as const
+  })),
+  ...GoodreadsReviews.map((rev, idx) => ({
+    id: `goodreads-extra-${idx}`,
+    name: rev.name,
+    rating: rev.rating,
+    review: rev.quote,
+    date: 'Reader Review',
+    location: 'Goodreads Community',
+    source: 'goodreads' as const
+  }))
 ];
 
 export const REELS: Reel[] = [
   {
     id: 'reel-1',
-    title: '“I looked at the stars and thought of you...” 🌌 | Midnight Musings',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?auto=format&fit=crop&w=360&h=640&q=80',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ', // Standard clean video embed placeholder
-    views: '120K',
-    likes: '14K'
+    title: '“She Speaks with Her Eyes...” 🌌 | Poetry Recitation',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?auto=format&fit=crop&w=360&h=640&q=80',
+    videoUrl: 'https://www.instagram.com/reel/DHOpwwKqzOR/embed/',
+    views: '142K',
+    likes: '18.5K'
   },
   {
     id: 'reel-2',
-    title: 'How to survive one-sided love 💔 | Healing Chapter 4',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?auto=format&fit=crop&w=360&h=640&q=80',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    views: '85K',
-    likes: '9.2K'
+    title: 'The Lightning Strike of Devotion ⚡ | College Campus Memories',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?auto=format&fit=crop&w=360&h=640&q=80',
+    videoUrl: 'https://www.instagram.com/reel/DK_rqL_xLBr/embed/',
+    views: '96K',
+    likes: '11.2K'
   },
   {
     id: 'reel-3',
-    title: 'The exact moment you realize they moved on... 🥀',
+    title: 'The Weakness of Expectations 💔 | Quiet Midnight Musings',
     thumbnailUrl: 'https://images.unsplash.com/photo-1508780709619-79562169bc34?auto=format&fit=crop&w=360&h=640&q=80',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    views: '240K',
-    likes: '32K'
+    videoUrl: 'https://www.instagram.com/reel/DZ5N9YbNmOQ/embed/',
+    views: '275K',
+    likes: '35.4K'
   },
   {
     id: 'reel-4',
-    title: 'To the one who stayed in my heart. 💌 | Book Reading',
+    title: 'Messy Healing & Letting Go 🥀 | A Letter of Closure',
     thumbnailUrl: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=360&h=640&q=80',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-    views: '180K',
-    likes: '22K'
+    videoUrl: 'https://www.instagram.com/reel/DZ2Y-eUzkhv/embed/',
+    views: '188K',
+    likes: '24.1K'
+  },
+  {
+    id: 'reel-5',
+    title: 'Love Isn’t About Possession 📖 | Becoming Someone New',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=360&h=640&q=80',
+    videoUrl: 'https://www.instagram.com/reel/DZxN7tSOKMS/embed/',
+    views: '320K',
+    likes: '44.8K'
   }
 ];
+
 
 export const BOOK_METADATA = {
   title: "Love, Loss and Life",
@@ -197,9 +223,12 @@ export const BOOK_METADATA = {
   notionPressUrl: "https://notionpress.com/in/read/love-loss-and-life",
   flipkartUrl: "https://dl.flipkart.com/dl/love-loss-life/p/itm6d5cb8a359d5c?pid=9798897241460&lid=LSTBOK9798897241460YZGBCV&marketplace=FLIPKART&q=love+loss+and+life+book&store=bks&srno=s_1_32&otracker=search&otracker1=search&fm=Search&iid=bfa7067d-7527-4727-8081-39888aea7785.9798897241460.SEARCH&ppt=sp&ppn=sp&ssid=evs5lctji80000001783597700994&qH=813f493a4e8af835&ov_redirect=true&ov_redirect=true&_refId=&_appId=CL",
   goodreadsUrl: "https://www.goodreads.com/en/book/show/226728159-love-loss-and-life",
-  readers: "5K+",
-  instagramFollowers: "80K+",
-  poemsWritten: "150+",
-  booksSold: "25K+",
+  readers: "600+",
+  instagramFollowers: "150+",
+  poemsWritten: "90+",
+  booksSold: "600+",
+  amazonReviews: "150+",
+  goodreadsRatings: "90+",
+  authorRole: "Author & Poet",
   isbn: "9798895033501"
 };

@@ -88,24 +88,74 @@ async function startServer() {
       // Default soulful starter guestbook notes
       const starterNotes = [
         {
-          name: "Ananya S.",
-          message: "The poem about the wet raincoat pocket made me weep. It perfectly captures how we carry unrequited love like a secret weight, hoping it never dries.",
-          sentAt: "2026-07-08T22:15:00.000Z"
+          name: "Reyan",
+          message: "Your words made me feel less alone. It felt as if someone had finally understood the emotions I had carried quietly for years.",
+          sentAt: "2026-07-01T09:15:00.000Z"
         },
         {
-          name: "Kabir",
-          message: "Makhanchor's prose reads like a slow, bittersweet song. 'Loss is a silent companion' is a phrase that will live in my notebook forever.",
-          sentAt: "2026-07-09T01:40:00.000Z"
+          name: "Rutuja",
+          message: "The poetry didn't just accompany the story—it became its heartbeat. Long after I finished reading, the emotions stayed with me.",
+          sentAt: "2026-07-02T14:22:00.000Z"
         },
         {
-          name: "Meera Nair",
-          message: "Just finished reading the three-page excerpt. The transition from grieving to finding sunrise on pebbles is breathtaking. Ordered my physical copy immediately!",
-          sentAt: "2026-07-09T18:05:00.000Z"
+          name: "Maanya Rathore",
+          message: "This wasn't just a book; it felt like a conversation between the author's heart and my own.",
+          sentAt: "2026-07-03T11:05:00.000Z"
         },
         {
-          name: "Aarav",
-          message: "To love, to lose, and to live again... Yogesh has bottled the exact aroma of midnight thoughts and unread letters in this gorgeous novel.",
-          sentAt: "2026-07-10T04:12:00.000Z"
+          name: "Nilofa Pervin",
+          message: "What touched me most was seeing pain transformed into poetry. The journey reminded me that heartbreak can become the beginning of healing.",
+          sentAt: "2026-07-04T16:40:00.000Z"
+        },
+        {
+          name: "Rupesh Verma",
+          message: "This book doesn't promise perfect endings. It reminds us that loving deeply is meaningful, even when love isn't returned.",
+          sentAt: "2026-07-05T10:12:00.000Z"
+        },
+        {
+          name: "Khushi",
+          message: "It captured the silent ache of one-sided love with honesty and showed that letting go can also be an act of love.",
+          sentAt: "2026-07-06T18:30:00.000Z"
+        },
+        {
+          name: "Monika",
+          message: "The emotions felt so real that I found myself feeling every moment, even without having lived the same story.",
+          sentAt: "2026-07-07T21:45:00.000Z"
+        },
+        {
+          name: "Read with Me",
+          message: "It felt less like reading a novel and more like opening someone's private journal filled with quiet confessions.",
+          sentAt: "2026-07-08T15:20:00.000Z"
+        },
+        {
+          name: "May",
+          message: "The poems read like pages from an unsent diary—raw, intimate, and beautifully honest.",
+          sentAt: "2026-07-09T13:10:00.000Z"
+        },
+        {
+          name: "Ayisha",
+          message: "Some books entertain. This one quietly breaks your heart and gently helps it heal.",
+          sentAt: "2026-07-10T09:55:00.000Z"
+        },
+        {
+          name: "Abinaya Annadurai",
+          message: "More than a love story, I found a journey of acceptance, growth, and learning to begin again.",
+          sentAt: "2026-07-11T12:04:00.000Z"
+        },
+        {
+          name: "Krutika Gor",
+          message: "The book reminded me that heartbreak may change us, but it never has to define who we become.",
+          sentAt: "2026-07-11T17:50:00.000Z"
+        },
+        {
+          name: "Anchal Agarwal",
+          message: "Reading this felt like talking to someone who truly understood what heartbreak and healing feel like.",
+          sentAt: "2026-07-12T14:35:00.000Z"
+        },
+        {
+          name: "Jiya",
+          message: "The quiet, honest emotions made me pause and reflect on my own life more than any dramatic story could.",
+          sentAt: "2026-07-12T20:18:00.000Z"
         }
       ];
 

@@ -7,8 +7,6 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, Sparkles, ChevronLeft, ChevronRight, Volume2, VolumeX, Eye } from 'lucide-react';
 
-const originalBookCover = new URL('../../assets/images/hero-love-loss-and-life.jpeg', import.meta.url).href;
-
 interface ExcerptPage {
   title: string;
   type: 'poem' | 'prose' | 'cover' | 'back';
@@ -37,78 +35,77 @@ export default function ExcerptBooklet() {
       ]
     },
     {
-      title: "The Wet Raincoat Pocket",
+      title: "She Speaks with Her Eyes",
       type: "poem",
       category: "I. UNREQUITED",
-      date: "Midnight Thoughts",
+      date: "First Sight",
       content: [
-        "I still carry that rain in my coat,",
-        "a cold heavy circle in my right-hand pocket,",
-        "where your fingers once rested,",
-        "by mistake, for three blocks.",
+        "She speaks with her eyes,",
+        "and only I understand the language they hold.",
+        "In the depths of those unspoken words,",
+        "I find myself craving more—",
+        "not just her presence, but the quiet secrets,",
+        "the universe only she knows.",
         "",
-        "I refuse to dry the wool.",
-        "Let the water rot the threads;",
-        "some weights are warmer than being free,",
-        "and some rains never learn to clear."
+        "Her gaze is filled with stories of stars",
+        "that dare to dance alone,",
+        "of whispers that travel through galaxies."
       ],
       number: 1
     },
     {
-      title: "Midnight Coffee",
+      title: "The Weakness of Expectations",
       type: "poem",
       category: "II. LOSS",
-      date: "Autumn Afternoon",
+      date: "Midnight Musings",
       content: [
-        "The stove is quiet now.",
-        "Two cups stand on the ledge,",
-        "one hot and smelling of hazelnut,",
-        "the other empty, catching dust.",
+        "Love can be anything,",
+        "but expectations—",
+        "they are the weakness that breaks us.",
         "",
-        "It takes exactly four minutes",
-        "for steam to disappear completely,",
-        "and a lifetime to realize",
-        "you aren't coming back",
-        "to finish the sip."
+        "True love must learn to let go,",
+        "to give without conditions,",
+        "to accept without needing validation.",
+        "",
+        "We pour our hearts onto pages,",
+        "our words the only witnesses to our anguish."
       ],
       number: 2
     },
     {
-      title: "Sunrise Over Pebbles",
+      title: "Messy Healing",
       type: "poem",
-      category: "III. LIFE",
+      category: "III. HEALING",
       date: "The Healing Dawn",
       content: [
-        "The river does not apologize",
-        "for breaking the stones in its path.",
-        "It simply polishes them",
-        "until they catch the morning light.",
+        "Healing is messy,",
+        "growth is gradual,",
+        "and every ending leaves behind a lesson.",
         "",
-        "Today, I walked the edge.",
-        "I found a pebble, smooth and grey,",
-        "washed clean of all yesterday's silt.",
-        "I held it to the sun and saw:",
-        "we do not stay broken.",
-        "We just become smooth enough to shine."
+        "You are not broken,",
+        "just beautifully rearranged.",
+        "Every crack of light",
+        "is simply proof",
+        "that you are coming alive again."
       ],
       number: 3
     },
     {
-      title: "The Anatomy of a Letter",
+      title: "Becoming Someone",
       type: "prose",
       category: "REFLECTIONS",
       date: "December Rain",
       content: [
-        "Why do we write what we cannot say?",
+        "Love isn't about possessing someone;",
+        "it's about becoming someone.",
         "",
-        "A letter is a bridge made of wood",
-        "that we build while knowing we will",
-        "burn it before reaching the other side.",
-        "We pack the ink with the things",
-        "that choke us at three in the morning,",
-        "seal it with a quiet kiss of wax,",
-        "and slide it into a letterbox,",
-        "hoping the world will read our silence."
+        "It's about growing into the kind of person",
+        "who can love deeply, even without guarantees.",
+        "",
+        "True love isn't defined by physical touch",
+        "or the need to hold someone close.",
+        "It is a beautiful journey",
+        "of finding strength after heartbreak."
       ],
       number: 4
     },
@@ -167,24 +164,26 @@ export default function ExcerptBooklet() {
 
   const handleNextPage = () => {
     if (currentPage >= 3) return; // Last spread reached
+    if (isFlipping) return; // Prevent double clicks during active flip
     setFlipDirection('next');
     setIsFlipping(true);
     playPageTurnSound();
+    setCurrentPage((prev) => prev + 1);
     
     setTimeout(() => {
-      setCurrentPage((prev) => prev + 1);
       setIsFlipping(false);
     }, 250);
   };
 
   const handlePrevPage = () => {
     if (currentPage <= 0) return; // First spread reached
+    if (isFlipping) return; // Prevent double clicks during active flip
     setFlipDirection('prev');
     setIsFlipping(true);
     playPageTurnSound();
+    setCurrentPage((prev) => prev - 1);
     
     setTimeout(() => {
-      setCurrentPage((prev) => prev - 1);
       setIsFlipping(false);
     }, 250);
   };
@@ -237,7 +236,9 @@ export default function ExcerptBooklet() {
         <div className="absolute inset-0 bg-gradient-to-b from-white/[0.01] to-transparent pointer-events-none" />
 
         {/* The Flat Book Container */}
-        <div className="relative grid grid-cols-1 md:grid-cols-2 bg-[#120f22] rounded-2xl overflow-hidden min-h-[380px] sm:min-h-[480px] border border-white/10 shadow-inner">
+        <div 
+          className="relative grid grid-cols-1 md:grid-cols-2 bg-[#120f22] rounded-2xl overflow-hidden min-h-[380px] sm:min-h-[480px] border border-white/10 shadow-inner"
+        >
           {/* Real physical gutter (middle spine of the book) */}
           <div className="absolute top-0 bottom-0 left-1/2 -ml-[2px] w-[4px] bg-gradient-to-r from-black/45 via-black/85 to-black/45 pointer-events-none z-30 hidden md:block" />
           {/* Subtle page creases near gutter */}
@@ -245,9 +246,15 @@ export default function ExcerptBooklet() {
           <div className="absolute top-0 bottom-0 left-1/2 ml-[2px] w-[20px] bg-gradient-to-l from-black/20 to-transparent pointer-events-none z-20 hidden md:block" />
 
           {/* PAGE SPREAD RENDERER */}
-          {/* SPREAD 0: Cover page layout */}
           {currentPage === 0 && (
-            <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 h-full">
+              <motion.div
+                key="spread-0"
+                initial={{ opacity: 0, x: flipDirection === 'next' ? 20 : -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: flipDirection === 'next' ? -20 : 20 }}
+                transition={{ duration: 0.25, ease: 'easeInOut' }}
+                className="col-span-2 grid grid-cols-1 md:grid-cols-2 h-full w-full"
+              >
               {/* Left page placeholder (Blank cream or dark interior) */}
               <div className="hidden md:flex bg-[#0b0816] items-center justify-center p-8 border-r border-white/5">
                 <div className="text-center space-y-4">
@@ -265,28 +272,19 @@ export default function ExcerptBooklet() {
                 className="bg-gradient-to-b from-[#1c1833] to-[#0a0814] p-8 flex flex-col justify-between text-center relative shadow-2xl h-full border-t border-r border-white/10 group cursor-pointer"
                 onClick={handleNextPage}
               >
-                <img
-                  src={originalBookCover}
-                  alt="Love, Loss and Life Book Cover"
-                  className="absolute inset-0 h-full w-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-
                 {/* 3D highlights on page edges */}
                 <div className="absolute top-0 right-0 w-[4px] h-full bg-gradient-to-r from-transparent to-white/10 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-full h-[4px] bg-gradient-to-t from-transparent to-black/20 pointer-events-none" />
                 <div className="absolute top-0 left-0 w-[10px] h-full bg-gradient-to-r from-black/40 to-transparent pointer-events-none" />
 
-                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/55 pointer-events-none" />
-
-                <div className="relative z-10 space-y-1 mt-6">
+                <div className="space-y-1 mt-6">
                   <span className="text-[10px] font-mono tracking-[0.3em] uppercase text-[#dfbe6b]">
                     A NOVEL & VERSE
                   </span>
                   <div className="h-[1px] bg-gradient-to-r from-transparent via-[#dfbe6b]/30 to-transparent w-16 mx-auto" />
                 </div>
 
-                <div className="relative z-10 space-y-4 py-8">
+                <div className="space-y-4 py-8">
                   <h1 className="font-serif font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-[0.08em] uppercase leading-tight bg-gradient-to-r from-[#ffeaa5] via-[#dfbe6b] to-[#fce498] bg-clip-text text-transparent drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]">
                     LOVE , LOSS
                   </h1>
@@ -295,7 +293,7 @@ export default function ExcerptBooklet() {
                   </h2>
                 </div>
 
-                <div className="relative z-10 space-y-4 mb-6">
+                <div className="space-y-4 mb-6">
                   <p className="font-cursive text-xl text-[#fae1e8]/80">
                     Yogesh Bhavsar
                   </p>
@@ -310,12 +308,19 @@ export default function ExcerptBooklet() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
 
           {/* SPREAD 1: Excerpt Page 1 & 2 */}
           {currentPage === 1 && (
-            <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 h-full">
+            <motion.div
+              key="spread-1"
+              initial={{ opacity: 0, x: flipDirection === 'next' ? 20 : -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: flipDirection === 'next' ? -20 : 20 }}
+              transition={{ duration: 0.25, ease: 'easeInOut' }}
+              className="col-span-2 grid grid-cols-1 md:grid-cols-2 h-full w-full"
+            >
               {/* Left Page (The Wet Raincoat Pocket) */}
               <div className="bg-[#faf4e8] text-brand-charcoal p-8 sm:p-12 flex flex-col justify-between relative border-r border-black/5 h-full">
                 {/* 3D shadows on interior paper folds */}
@@ -371,12 +376,19 @@ export default function ExcerptBooklet() {
                   <span>PAGE {pages[2].number}</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
 
           {/* SPREAD 2: Excerpt Page 3 & 4 */}
           {currentPage === 2 && (
-            <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 h-full">
+            <motion.div
+              key="spread-2"
+              initial={{ opacity: 0, x: flipDirection === 'next' ? 20 : -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: flipDirection === 'next' ? -20 : 20 }}
+              transition={{ duration: 0.25, ease: 'easeInOut' }}
+              className="col-span-2 grid grid-cols-1 md:grid-cols-2 h-full w-full"
+            >
               {/* Left Page (Sunrise Over Pebbles) */}
               <div className="bg-[#faf4e8] text-brand-charcoal p-8 sm:p-12 flex flex-col justify-between relative border-r border-black/5 h-full">
                 <div className="absolute top-0 bottom-0 right-0 w-[10px] bg-gradient-to-l from-black/10 to-transparent pointer-events-none hidden md:block" />
@@ -430,12 +442,19 @@ export default function ExcerptBooklet() {
                   <span>PAGE {pages[4].number}</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
 
           {/* SPREAD 3: Back cover layout */}
           {currentPage === 3 && (
-            <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 h-full">
+            <motion.div
+              key="spread-3"
+              initial={{ opacity: 0, x: flipDirection === 'next' ? 20 : -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: flipDirection === 'next' ? -20 : 20 }}
+              transition={{ duration: 0.25, ease: 'easeInOut' }}
+              className="col-span-2 grid grid-cols-1 md:grid-cols-2 h-full w-full"
+            >
               {/* Left Page (EPILOGUE / Summary page) */}
               <div className="bg-[#faf4e8] text-brand-charcoal p-8 sm:p-12 flex flex-col justify-between relative border-r border-black/5 h-full">
                 <div className="absolute top-0 bottom-0 right-0 w-[10px] bg-gradient-to-l from-black/10 to-transparent pointer-events-none hidden md:block" />
@@ -496,7 +515,7 @@ export default function ExcerptBooklet() {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           )}
 
           {/* Page bend active animation element */}

@@ -14,6 +14,11 @@ export default function MailingListPopup() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Anti-bot security layers
+  const [honeypot, setHoneypot] = useState("");
+  const [isVerifiedHuman, setIsVerifiedHuman] = useState(false);
+  const [mountTime] = useState(() => Date.now());
+
   useEffect(() => {
     // 1. Check if user already dismissed or subscribed
     const isStored = localStorage.getItem("makhanchor_mailing_list_interacted");
@@ -42,6 +47,34 @@ export default function MailingListPopup() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    // Layer 1: Honeypot trap check
+    if (honeypot) {
+      // Silently fail/succeed to trick bots
+      setStatus("submitting");
+      setTimeout(() => {
+        setStatus("success");
+        localStorage.setItem("makhanchor_mailing_list_interacted", "true");
+        setTimeout(() => setIsOpen(false), 3000);
+      }, 1000);
+      return;
+    }
+
+    // Layer 2: Time-lock check (requires at least 2.5 seconds since component mounted)
+    const secondsSinceMount = (Date.now() - mountTime) / 1000;
+    if (secondsSinceMount < 2.5) {
+      setErrorMessage("Verification failed. Please try again in a moment.");
+      setStatus("error");
+      return;
+    }
+
+    // Layer 3: Checkbox verification check
+    if (!isVerifiedHuman) {
+      setErrorMessage("Please confirm you are a human reader.");
+      setStatus("error");
+      return;
+    }
+
     if (!email) {
       setErrorMessage("Please enter your email address.");
       setStatus("error");
@@ -193,6 +226,32 @@ export default function MailingListPopup() {
                     className="w-full text-xs px-3.5 py-2.5 bg-brand-charcoal/5 focus:bg-white border border-transparent focus:border-brand-coral/40 rounded-xl focus:ring-1 focus:ring-brand-coral/30 outline-none transition-all"
                     required
                   />
+                </div>
+
+                {/* Honeypot anti-bot hidden field */}
+                <div className="hidden" aria-hidden="true">
+                  <input
+                    type="text"
+                    name="phone_extension_backup"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
+                {/* Anti-Bot validation Checkbox */}
+                <div className="flex items-center space-x-2 bg-brand-charcoal/5 p-2.5 rounded-xl border border-transparent hover:border-brand-coral/20 transition-all duration-300">
+                  <input
+                    type="checkbox"
+                    id="popup-human-verification"
+                    checked={isVerifiedHuman}
+                    onChange={(e) => setIsVerifiedHuman(e.target.checked)}
+                    className="w-4 h-4 rounded border-brand-charcoal/20 text-brand-coral focus:ring-brand-coral cursor-pointer accent-brand-coral"
+                  />
+                  <label htmlFor="popup-human-verification" className="text-[11px] text-brand-charcoal/75 select-none cursor-pointer font-medium">
+                    I am a genuine human reader.
+                  </label>
                 </div>
 
                 {status === "error" && (

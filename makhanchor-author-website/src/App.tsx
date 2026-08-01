@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingBag, Star, BookOpen, X, ArrowUp, CheckCircle, Flame, Gift, Sparkles, ChevronRight } from 'lucide-react';
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
+import TrustStrip from './components/TrustStrip';
 import BookShowcase from './components/BookShowcase';
 import AboutSanctuary from './components/AboutSanctuary';
 import BlogGrid from './components/BlogGrid';
@@ -290,6 +291,9 @@ export default function App() {
                 }}
                 onReadBlog={() => handleSetActiveTab('blog')}
               />
+
+              {/* Award/Feature trust strip showing review highlights */}
+              <TrustStrip />
 
               {/* Featured Book Showcase (Cream segment) */}
               <BookShowcase

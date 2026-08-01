@@ -188,8 +188,8 @@ export default function LegalModal({ isOpen, onClose, initialDocType }: LegalMod
                     <p>
                       If you have any questions or would like your stored email address or guestbook entries permanently deleted from our servers, please contact us directly at:
                       <br />
-                      <a href="mailto:yogeshbhavsar1994@gmail.com" className="text-brand-coral hover:underline mt-1 inline-block">
-                        yogeshbhavsar1994@gmail.com
+                      <a href="mailto:yogeshbhavsarauthor@gmail.com" className="text-brand-coral hover:underline mt-1 inline-block">
+                        yogeshbhavsarauthor@gmail.com
                       </a>
                     </p>
                   </div>
@@ -295,8 +295,8 @@ export default function LegalModal({ isOpen, onClose, initialDocType }: LegalMod
                     <p>
                       If you experience any platform issues or did not receive the correct order, please email Yogesh Bhavsar directly, providing your order number and store platform. We will do everything in our power to resolve it!
                       <br />
-                      <a href="mailto:yogeshbhavsar1994@gmail.com" className="text-brand-coral hover:underline mt-1 inline-block">
-                        yogeshbhavsar1994@gmail.com
+                      <a href="mailto:yogeshbhavsarauthor@gmail.com" className="text-brand-coral hover:underline mt-1 inline-block">
+                        yogeshbhavsarauthor@gmail.com
                       </a>
                     </p>
                   </div>

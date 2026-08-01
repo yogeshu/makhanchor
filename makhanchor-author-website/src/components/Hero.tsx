@@ -4,8 +4,7 @@
  */
 
 import { motion } from 'motion/react';
-import { BookOpen, Users, Star, Award, ChevronRight, Sparkles } from 'lucide-react';
-import { BOOK_METADATA } from '../data';
+import { ChevronRight, Sparkles } from 'lucide-react';
 import BookCover from './BookCover';
 
 interface HeroProps {
@@ -14,18 +13,10 @@ interface HeroProps {
 }
 
 export default function Hero({ onExploreBook, onReadBlog }: HeroProps) {
-  // Stats items with icons
-  const stats = [
-    { value: BOOK_METADATA.readers, label: 'Readers', icon: Users },
-    { value: BOOK_METADATA.instagramFollowers, label: 'Instagram Family', icon: Star },
-    { value: BOOK_METADATA.poemsWritten, label: 'Poems Written', icon: Award },
-    { value: BOOK_METADATA.booksSold, label: 'Copies Sold', icon: BookOpen },
-  ];
-
   return (
     <section
       id="home"
-      className="relative min-h-screen bg-gradient-to-b from-[#0a0a0c] via-[#0f1118] to-[#12141c] overflow-hidden pt-28 pb-16 flex flex-col justify-between"
+      className="relative min-h-[90vh] bg-gradient-to-b from-[#0a0a0c] via-[#0f1118] to-[#12141c] overflow-hidden pt-28 pb-20 md:pb-28 flex flex-col justify-center"
     >
       {/* 1. Starry sky ambient background with custom nebula glows */}
       <div className="absolute inset-0 z-0 opacity-45 pointer-events-none">
@@ -58,7 +49,8 @@ export default function Hero({ onExploreBook, onReadBlog }: HeroProps) {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="font-serif text-5xl sm:text-6xl lg:text-7xl leading-[1.1] text-white tracking-tight"
           >
-            Poetry for the <br />
+            Stories &amp; Poetry <br />
+            for the <br />
             <span className="text-brand-coral font-cursive font-bold italic tracking-wide lowercase px-1 bg-gradient-to-r from-brand-coral/30 to-transparent rounded-lg">
               heart
             </span>{' '}
@@ -84,7 +76,7 @@ export default function Hero({ onExploreBook, onReadBlog }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-base sm:text-lg text-white/70 max-w-xl font-sans leading-relaxed"
           >
-            A collection of romantic poetry and words born from one-sided love, healing, and the hope that lives in every soul.
+            An emotionally raw debut novel woven with poignant poetry, born from one-sided love, healing, and the hope that lives in every soul.
           </motion.p>
 
           {/* Dual Action Buttons */}
@@ -158,37 +150,6 @@ export default function Hero({ onExploreBook, onReadBlog }: HeroProps) {
               — Yogesh Bhavsar
             </span>
           </motion.div>
-        </div>
-      </div>
-
-      {/* 2. Horizontal statistic counter ribbon */}
-      <div className="max-w-7xl mx-auto px-6 w-full mt-12 relative z-20">
-        <div className="bg-brand-charcoal/80 backdrop-blur-md border border-white/10 rounded-2xl py-6 px-8 grid grid-cols-2 md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10">
-          {stats.map((stat, idx) => {
-            const Icon = stat.icon;
-            return (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 + idx * 0.1 }}
-                className="flex items-center space-x-4 justify-center py-4 md:py-0"
-                id={`stat-item-${idx}`}
-              >
-                <div className="p-3 bg-brand-coral/10 rounded-xl text-brand-coral">
-                  <Icon className="w-5 h-5" />
-                </div>
-                <div className="text-left">
-                  <div className="font-mono text-2xl sm:text-3xl font-bold text-white tracking-tight">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs text-white/50 uppercase tracking-widest mt-0.5">
-                    {stat.label}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
         </div>
       </div>
     </section>

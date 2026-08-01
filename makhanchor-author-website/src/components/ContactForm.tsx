@@ -12,10 +12,40 @@ export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [sent, setSent] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  
+  // Anti-bot security layers
+  const [honeypot, setHoneypot] = useState('');
+  const [isVerifiedHuman, setIsVerifiedHuman] = useState(false);
+  const [mountTime] = useState(() => Date.now());
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
+
+    // Layer 1: Honeypot trap check
+    if (honeypot) {
+      // Silently fail to trick bots into thinking they succeeded
+      setIsSubmitting(true);
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setSent(true);
+        setFormData({ name: '', email: '', message: '' });
+      }, 1000);
+      return;
+    }
+
+    // Layer 2: Time-lock check (requires at least 2.5 seconds to read/type)
+    const secondsSinceMount = (Date.now() - mountTime) / 1000;
+    if (secondsSinceMount < 2.5) {
+      setSubmitError('Verification failed. Please read the letter content and try again.');
+      return;
+    }
+
+    // Layer 3: Interactive wax seal validation
+    if (!isVerifiedHuman) {
+      setSubmitError('Please verify you are a human reader by checking the seal below.');
+      return;
+    }
 
     setIsSubmitting(true);
     setSubmitError('');
@@ -169,6 +199,32 @@ export default function ContactForm() {
                     <Feather className="w-5 h-5 text-brand-coral" />
                   </div>
                 </div>
+              </div>
+
+              {/* Honeypot field - completely invisible to humans, trap for spam bots */}
+              <div className="hidden" aria-hidden="true">
+                <input
+                  type="text"
+                  name="postal_routing_code_validation"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
+              {/* Gorgeous Wax Seal Reader Verification Box */}
+              <div className="flex items-center space-x-3 bg-white/5 border border-white/10 p-4 rounded-xl hover:border-brand-coral/40 transition-colors duration-300">
+                <input
+                  type="checkbox"
+                  id="human-verification-seal"
+                  checked={isVerifiedHuman}
+                  onChange={(e) => setIsVerifiedHuman(e.target.checked)}
+                  className="w-5 h-5 rounded border-white/20 text-brand-coral bg-transparent focus:ring-brand-coral focus:ring-offset-0 cursor-pointer accent-brand-coral"
+                />
+                <label htmlFor="human-verification-seal" className="text-xs text-white/70 select-none cursor-pointer leading-relaxed">
+                  I seal this silent story with a wax stamp as a real human reader.
+                </label>
               </div>
 
               {submitError && (

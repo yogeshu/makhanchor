@@ -17,9 +17,40 @@ export default function Footer({ onSubscribe, onOpenLegal }: FooterProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
+  // Anti-bot security layers
+  const [honeypot, setHoneypot] = useState('');
+  const [isVerifiedHuman, setIsVerifiedHuman] = useState(false);
+  const [mountTime] = useState(() => Date.now());
+
   const handleSubscribeSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
+
+    // Layer 1: Honeypot trap check
+    if (honeypot) {
+      // Mock success for bots
+      setStatus('submitting');
+      setTimeout(() => {
+        setStatus('success');
+        setEmail('');
+      }, 1000);
+      return;
+    }
+
+    // Layer 2: Time-lock check (requires at least 2.5 seconds since page loaded)
+    const secondsSinceMount = (Date.now() - mountTime) / 1000;
+    if (secondsSinceMount < 2.5) {
+      setErrorMessage('Verification failed. Please wait a moment and try again.');
+      setStatus('error');
+      return;
+    }
+
+    // Layer 3: Interactive verification check
+    if (!isVerifiedHuman) {
+      setErrorMessage('Please confirm you are a human reader below.');
+      setStatus('error');
+      return;
+    }
 
     setStatus('submitting');
     setErrorMessage('');
@@ -115,7 +146,7 @@ export default function Footer({ onSubscribe, onOpenLegal }: FooterProps) {
             </motion.div>
           ) : (
             <div className="space-y-2 max-w-md">
-              <form onSubmit={handleSubscribeSubmit} className="flex items-stretch gap-2 mt-4">
+              <form onSubmit={handleSubscribeSubmit} className="flex items-stretch gap-2.5 mt-4">
                 <input
                   type="email"
                   required
@@ -123,17 +154,44 @@ export default function Footer({ onSubscribe, onOpenLegal }: FooterProps) {
                   disabled={status === 'submitting'}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email address"
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-1 focus:ring-brand-coral focus:border-brand-coral text-white placeholder-white/30 flex-grow disabled:opacity-50"
+                  className="bg-white/5 border border-white/10 rounded-xl px-5 py-4 text-sm focus:outline-none focus:ring-1 focus:ring-brand-coral focus:border-brand-coral text-white placeholder-white/30 flex-grow disabled:opacity-50"
                 />
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="bg-brand-coral hover:bg-brand-coral-hover text-white px-6 rounded-xl font-semibold text-sm shadow-md transition-colors flex items-center space-x-1.5 cursor-pointer disabled:opacity-50"
+                  className="bg-brand-coral hover:bg-brand-coral-hover text-white px-8 rounded-xl font-bold text-sm shadow-md transition-colors flex items-center space-x-2 cursor-pointer disabled:opacity-50"
                 >
                   <span>{status === 'submitting' ? 'Joining...' : 'Subscribe'}</span>
                   <Send className="w-3.5 h-3.5" />
                 </button>
               </form>
+
+              {/* Honeypot field - completely invisible to humans, trap for spam bots */}
+              <div className="hidden" aria-hidden="true">
+                <input
+                  type="text"
+                  name="tel_international_access"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
+              {/* Dynamic elegant validation toggle */}
+              <div className="flex items-center space-x-2 bg-white/5 p-2.5 rounded-xl border border-white/5 hover:border-brand-coral/20 transition-all duration-300">
+                <input
+                  type="checkbox"
+                  id="footer-human-verification"
+                  checked={isVerifiedHuman}
+                  onChange={(e) => setIsVerifiedHuman(e.target.checked)}
+                  className="w-4 h-4 rounded border-white/20 text-brand-coral bg-transparent focus:ring-brand-coral focus:ring-offset-0 cursor-pointer accent-brand-coral"
+                />
+                <label htmlFor="footer-human-verification" className="text-xs text-white/70 select-none cursor-pointer">
+                  I am a real reader, not a robot
+                </label>
+              </div>
+
               {status === 'error' && (
                 <p className="text-xs text-rose-400 font-medium pl-1">
                   {errorMessage}
@@ -150,32 +208,86 @@ export default function Footer({ onSubscribe, onOpenLegal }: FooterProps) {
             Follow my social channels to read daily poetry and interactive story loops.
           </p>
 
-          <div className="flex items-center space-x-4 pt-2">
-            <a
-              href="https://www.instagram.com/makhanchor.in/"
-              target="_blank"
-              rel="noreferrer"
-              className="w-11 h-11 rounded-xl bg-white/5 hover:bg-brand-coral border border-white/5 hover:border-brand-coral flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 shadow-md cursor-pointer"
-              aria-label="Instagram Profile"
-            >
-              <Instagram className="w-5 h-5" />
-            </a>
-            <a
-              href="https://www.youtube.com/c/makhanchor"
-              target="_blank"
-              rel="noreferrer"
-              className="w-11 h-11 rounded-xl bg-white/5 hover:bg-brand-coral border border-white/5 hover:border-brand-coral flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 shadow-md cursor-pointer"
-              aria-label="YouTube Channel"
-            >
-              <Youtube className="w-5 h-5" />
-            </a>
-            <a
-              href="mailto:yogeshbhavsar1994@gmail.com"
-              className="w-11 h-11 rounded-xl bg-white/5 hover:bg-brand-coral border border-white/5 hover:border-brand-coral flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 shadow-md cursor-pointer"
-              aria-label="Email Makhanchor"
-            >
-              <Mail className="w-5 h-5" />
-            </a>
+          <div className="flex flex-col space-y-3.5 pt-2">
+            <div className="flex items-center space-x-3">
+              <a
+                href="https://www.instagram.com/scripted_by_yogesh/"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-coral border border-white/5 hover:border-brand-coral flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 shadow-md cursor-pointer"
+                aria-label="Instagram Author Profile"
+                title="Author Profile"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/scripted_by_yogesh/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs text-white/60 hover:text-brand-coral transition-colors"
+              >
+                Author: @scripted_by_yogesh
+              </a>
+            </div>
+
+            <div className="flex items-center space-x-3">
+              <a
+                href="https://www.instagram.com/the.makhanchor/"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-coral border border-white/5 hover:border-brand-coral flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 shadow-md cursor-pointer"
+                aria-label="Instagram Personal Profile"
+                title="Personal Profile"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/the.makhanchor/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs text-white/60 hover:text-brand-coral transition-colors"
+              >
+                Personal: @the.makhanchor
+              </a>
+            </div>
+
+            <div className="flex items-center space-x-3">
+              <a
+                href="https://www.youtube.com/@makhanchor646"
+                target="_blank"
+                rel="noreferrer"
+                className="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-coral border border-white/5 hover:border-brand-coral flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 shadow-md cursor-pointer"
+                aria-label="YouTube Channel"
+                title="YouTube"
+              >
+                <Youtube className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.youtube.com/@makhanchor646"
+                target="_blank"
+                rel="noreferrer"
+                className="text-xs text-white/60 hover:text-brand-coral transition-colors"
+              >
+                YouTube: @makhanchor646
+              </a>
+            </div>
+
+            <div className="flex items-center space-x-3">
+              <a
+                href="mailto:yogeshbhavsarauthor@gmail.com"
+                className="w-10 h-10 rounded-xl bg-white/5 hover:bg-brand-coral border border-white/5 hover:border-brand-coral flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 shadow-md cursor-pointer"
+                aria-label="Email Makhanchor"
+                title="Email"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
+              <a
+                href="mailto:yogeshbhavsarauthor@gmail.com"
+                className="text-xs text-white/60 hover:text-brand-coral transition-colors truncate max-w-[190px]"
+              >
+                yogeshbhavsarauthor@gmail.com
+              </a>
+            </div>
           </div>
         </div>
       </div>

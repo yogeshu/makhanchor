@@ -62,7 +62,7 @@ export default function ReelsPage({ isVisible, onClose }: ReelsPageProps) {
         {/* 9:16 Vertical Card Grid */}
         <div
           id="reels-grid"
-          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6"
         >
           {REELS.map((reel) => (
             <motion.div
@@ -114,7 +114,7 @@ export default function ReelsPage({ isVisible, onClose }: ReelsPageProps) {
                   {reel.title}
                 </h3>
                 <span className="block text-[10px] text-brand-coral font-bold tracking-widest uppercase">
-                  @makhanchor.in
+                  @scripted_by_yogesh
                 </span>
               </div>
             </motion.div>
@@ -162,7 +162,7 @@ export default function ReelsPage({ isVisible, onClose }: ReelsPageProps) {
                 */}
                 <iframe
                   id="reel-player-iframe"
-                  src={`${activeReel.videoUrl}?autoplay=1&mute=0&loop=1&playlist=dQw4w9WgXcQ`}
+                  src={activeReel.videoUrl}
                   title={activeReel.title}
                   className="w-full h-full object-cover"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
