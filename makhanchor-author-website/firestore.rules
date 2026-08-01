@@ -1,25 +1,40 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    // Private letters to author - write allowed with strict bounds, public read strictly disabled
     match /letters/{letterId} {
       allow create: if request.resource.data.keys().hasAll(['name', 'email', 'message', 'createdAt'])
                     && request.resource.data.name is string
+                    && request.resource.data.name.size() >= 2
+                    && request.resource.data.name.size() <= 70
                     && request.resource.data.email is string
-                    && request.resource.data.message is string;
-      allow read: if true;
+                    && request.resource.data.email.size() >= 5
+                    && request.resource.data.email.size() <= 100
+                    && request.resource.data.message is string
+                    && request.resource.data.message.size() >= 10
+                    && request.resource.data.message.size() <= 3000;
+      allow read: if false; // Kept strictly private to the author in Firebase Console
     }
 
+    // Public guestbook reflections - write allowed with bounds, public read enabled
     match /guestbook/{entryId} {
       allow create: if request.resource.data.keys().hasAll(['authorName', 'comment', 'createdAt'])
                     && request.resource.data.authorName is string
-                    && request.resource.data.comment is string;
+                    && request.resource.data.authorName.size() >= 2
+                    && request.resource.data.authorName.size() <= 70
+                    && request.resource.data.comment is string
+                    && request.resource.data.comment.size() >= 5
+                    && request.resource.data.comment.size() <= 1000;
       allow read: if true;
     }
 
+    // Newsletter subscribers - write allowed, public read strictly disabled for privacy
     match /subscribers/{subscriberId} {
       allow create: if request.resource.data.keys().hasAll(['email', 'subscribedAt'])
-                    && request.resource.data.email is string;
-      allow read: if true;
+                    && request.resource.data.email is string
+                    && request.resource.data.email.size() >= 5
+                    && request.resource.data.email.size() <= 100;
+      allow read: if false; // Kept private to author
     }
   }
 }

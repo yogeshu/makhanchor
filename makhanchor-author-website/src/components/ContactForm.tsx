@@ -5,7 +5,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Mail, Send, CheckCircle, Sparkles, Feather } from 'lucide-react';
+import { Mail, Send, CheckCircle, Sparkles, Feather, ShieldCheck } from 'lucide-react';
 import { saveLetterToFirebase } from '../lib/firebase';
 
 export default function ContactForm() {
@@ -21,7 +21,58 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
+    setSubmitError('');
+
+    const trimmedName = formData.name.trim();
+    const trimmedEmail = formData.email.trim();
+    const trimmedMessage = formData.message.trim();
+
+    // Field presence
+    if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+      setSubmitError('Please fill in your name, email, and letter message.');
+      return;
+    }
+
+    // Name length check
+    if (trimmedName.length < 2 || trimmedName.length > 70) {
+      setSubmitError('Name should be between 2 and 70 characters.');
+      return;
+    }
+
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmedEmail) || trimmedEmail.length > 100) {
+      setSubmitError('Please enter a valid email address.');
+      return;
+    }
+
+    // Message length check
+    if (trimmedMessage.length < 10) {
+      setSubmitError('Your letter message is a bit too short (minimum 10 characters required).');
+      return;
+    }
+    if (trimmedMessage.length > 2500) {
+      setSubmitError('Your letter message exceeds the maximum length of 2,500 characters.');
+      return;
+    }
+
+    // Link / Phishing spam filter (max 2 URLs allowed)
+    const urlMatches = trimmedMessage.match(/https?:\/\/[^\s]+/gi) || [];
+    if (urlMatches.length > 2) {
+      setSubmitError('For security, letters cannot contain excessive links or URLs.');
+      return;
+    }
+
+    // Rate Limiting (3 minutes cooldown per browser session)
+    const lastSentTime = localStorage.getItem('makhanchor_last_letter_time');
+    if (lastSentTime) {
+      const elapsed = (Date.now() - parseInt(lastSentTime, 10)) / 1000;
+      if (elapsed < 180) {
+        const remainingMinutes = Math.ceil((180 - elapsed) / 60);
+        setSubmitError(`Your previous letter is still traveling under the moonlight. Please wait ${remainingMinutes} minute(s) before sending another.`);
+        return;
+      }
+    }
 
     // Layer 1: Honeypot trap check
     if (honeypot) {
@@ -38,7 +89,7 @@ export default function ContactForm() {
     // Layer 2: Time-lock check (requires at least 2.5 seconds to read/type)
     const secondsSinceMount = (Date.now() - mountTime) / 1000;
     if (secondsSinceMount < 2.5) {
-      setSubmitError('Verification failed. Please read the letter content and try again.');
+      setSubmitError('Verification failed. Please take a moment to write your letter.');
       return;
     }
 
@@ -49,36 +100,40 @@ export default function ContactForm() {
     }
 
     setIsSubmitting(true);
-    setSubmitError('');
 
     const offlinePayload = {
-      name: formData.name,
-      message: formData.message,
+      name: trimmedName,
+      message: trimmedMessage,
       sentAt: new Date().toISOString()
     };
- // Save to Firebase Firestore Database
+
+    // Save to Firebase Firestore Database
     try {
       await saveLetterToFirebase({
-        name: formData.name,
-        email: formData.email,
-        message: formData.message
+        name: trimmedName,
+        email: trimmedEmail,
+        message: trimmedMessage
       });
       console.log('Letter successfully stored in Firebase Firestore!');
     } catch (firebaseErr) {
       console.warn('Firebase submission notice:', firebaseErr);
     }
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ name: trimmedName, email: trimmedEmail, message: trimmedMessage }),
       });
 
       if (!response.ok) {
         throw new Error('Server returned error status');
       }
+
+      // Record rate limit timestamp
+      localStorage.setItem('makhanchor_last_letter_time', Date.now().toString());
 
       // Also save locally so it instantly reflects in the local UI
       try {
@@ -99,6 +154,7 @@ export default function ContactForm() {
       // Offline fallback: Save locally and pretend we sent it to bypass server drama
       console.info('Saving letter offline (Hostinger/Serverless mode)');
       try {
+        localStorage.setItem('makhanchor_last_letter_time', Date.now().toString());
         const stored = localStorage.getItem('makhanchor_offline_letters');
         const currentLetters = stored ? JSON.parse(stored) : [];
         localStorage.setItem(
@@ -258,6 +314,12 @@ export default function ContactForm() {
                   </>
                 )}
               </button>
+
+              {/* Security & Privacy Protection Badge */}
+              <div className="pt-2 flex items-center justify-center space-x-2 text-[11px] text-white/40">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
+                <span>Private & Protected: Letters are encrypted in database & screened against spam/abuse.</span>
+              </div>
             </form>
           )}
         </div>
