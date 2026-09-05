@@ -107,7 +107,7 @@ const PurchaseGuide = () => {
         },
         {
             title: "Apply Coupon Code",
-            desc: "Use code LOVELOSS175 on NotionPress for maximum savings and support independent publishing",
+            desc: "Use code LOVETRUELY on NotionPress for maximum savings and support independent publishing",
             icon: Award
         },
         {
@@ -194,11 +194,11 @@ export default function AuthorPage() {
         },
         {
             question: "Which platform should I buy from?",
-            answer: "Amazon is perfect for fastest delivery with Prime eligibility and convenience. NotionPress offers the best price at ₹175 AND includes the coupon code LOVELOSS175 for additional savings, plus direct support for the independent author. Choose NotionPress to directly support Makhanchor!"
+            answer: "Amazon is perfect for fastest delivery with Prime eligibility and convenience. NotionPress offers the best price at ₹175 AND includes the coupon code LOVETRUELY for additional savings, plus direct support for the independent author. Choose NotionPress to directly support Makhanchor!"
         },
         {
-            question: "How do I use the coupon code LOVELOSS175?",
-            answer: "Simply go to NotionPress, add the book to your cart, and enter the coupon code LOVELOSS175 at checkout. The discount will be automatically applied, giving you the best possible price while supporting the author directly."
+            question: "How do I use the coupon code LOVETRUELY?",
+            answer: "Simply go to NotionPress, add the book to your cart, and enter the coupon code LOVETRUELY at checkout. The discount will be automatically applied, giving you the best possible price while supporting the author directly."
         },
         {
             question: "Can I gift this book?",
@@ -281,7 +281,7 @@ export default function AuthorPage() {
                                             price="₹175"
                                             originalPrice="₹299"
                                             benefit="✓ Best Price • Delivery included"
-                                            couponCode="LOVELOSS175"
+                                            couponCode="LOVETRUELY"
                                             discount={42}
                                             featured={true}
                                         >
@@ -306,7 +306,7 @@ export default function AuthorPage() {
 
                                 <div className="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 text-sm text-amber-100">
                                     <p className="font-semibold mb-1">💡 Pro Tip:</p>
-                                    <p>Use NotionPress with coupon code <span className="font-mono font-bold text-amber-300">LOVELOSS175</span> to get the best deal and support the author directly!</p>
+                                    <p>Use NotionPress with coupon code <span className="font-mono font-bold text-amber-300">LOVETRUELY</span> to get the best deal and support the author directly!</p>
                                 </div>
                             </div>
 
@@ -482,7 +482,7 @@ export default function AuthorPage() {
                             price="₹175"
                             originalPrice="₹299"
                             benefit="✓ Best Price • Delivery included"
-                            couponCode="LOVELOSS175"
+                            couponCode="LOVETRUELY"
                             discount={42}
                             featured={true}
                         >
