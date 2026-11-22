@@ -23,6 +23,7 @@ import Footer from './components/Footer';
 import SEO from './components/SEO';
 import ReadingProgress from './components/ReadingProgress';
 import MailingListPopup from './components/MailingListPopup';
+import ReadingShelf from './components/ReadingShelf';
 import { BlogPost } from './types';
 import { BLOG_POSTS, BOOK_METADATA } from './data';
 
@@ -62,6 +63,12 @@ export default function App() {
       if (pathname === '/blog') {
         setActiveBlog(null);
         setActiveTab('blog');
+        return;
+      }
+
+      if (pathname === '/the-shelf' || pathname === '/the-shelf/') {
+        setActiveBlog(null);
+        setActiveTab('shelf');
         return;
       }
 
@@ -164,7 +171,13 @@ export default function App() {
   };
 
   const handleSetActiveTab = (tab: string) => {
-    if (tab === 'about') {
+    if (tab === 'shelf') {
+      window.history.pushState(null, '', '/the-shelf/');
+      setCurrentPath('/the-shelf/');
+      setActiveTab('shelf');
+      setActiveBlog(null);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (tab === 'about') {
       window.history.pushState(null, '', '/about');
       setCurrentPath('/about');
       setActiveTab('about');
@@ -260,6 +273,17 @@ export default function App() {
               className="pt-20"
             >
               <AboutSanctuary />
+            </motion.div>
+          ) : currentPath === '/the-shelf' || currentPath === '/the-shelf/' ? (
+            <motion.div
+              key="reading-shelf-page"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="pt-20"
+            >
+              <ReadingShelf />
             </motion.div>
           ) : currentPath === '/blog' || currentPath.startsWith('/blog/') ? (
             <motion.div

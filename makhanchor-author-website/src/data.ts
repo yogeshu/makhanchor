@@ -211,6 +211,70 @@ export const REELS: Reel[] = [
 ];
 
 
+export interface ShelfBook {
+  title: string;
+  author: string;
+  category: 'Fiction' | 'Nonfiction';
+  description: string;
+  readIf: string;
+  amazonUrl?: string;
+  coverUrl?: string;
+  note?: string;
+}
+
+// Replace or add entries here. Cover URLs should be added only when authorized.
+// Amazon URLs may be direct product links or tagged SiteStripe links.
+export const SHELF_BOOKS: ShelfBook[] = [
+  {
+    title: 'The Alchemist',
+    author: 'Paulo Coelho',
+    category: 'Fiction',
+    description: 'A shepherd follows a recurring dream across Andalusia and North Africa, exploring purpose, courage, and the meaning of a journey.',
+    readIf: 'You want a compact, hopeful fable about second chances and following what matters.',
+    amazonUrl: 'https://www.amazon.in/dp/0061122416',
+  },
+  {
+    title: 'Before the Coffee Gets Cold',
+    author: 'Toshikazu Kawaguchi',
+    category: 'Fiction',
+    description: 'A small café offers visitors a chance to travel briefly into the past, with one strict rule: they must return before their coffee grows cold.',
+    readIf: 'You enjoy tender stories about relationships, regret, and moments we wish we could revisit.',
+    amazonUrl: 'https://www.amazon.in/dp/1529029589',
+  },
+  {
+    title: 'The Midnight Library',
+    author: 'Matt Haig',
+    category: 'Fiction',
+    description: 'A woman moves between lives shaped by choices she did not make, discovering how possibility and regret can coexist.',
+    readIf: 'You are in the mood for a thoughtful story about the lives we might have lived.',
+    amazonUrl: 'https://www.amazon.in/dp/1786892731',
+  },
+  {
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    category: 'Nonfiction',
+    description: 'A practical guide to building useful habits and reducing the friction around lasting behavioral change.',
+    readIf: 'You want a clear, action-focused book about routines and small improvements.',
+    amazonUrl: 'https://www.amazon.in/dp/1847941834',
+  },
+  {
+    title: 'Ikigai',
+    author: 'Hector Garcia and Francesc Miralles',
+    category: 'Nonfiction',
+    description: 'A look at Japanese ideas of purpose, everyday meaning, community, and habits associated with longevity.',
+    readIf: 'You are looking for a gentle introduction to purpose and a more deliberate daily life.',
+    amazonUrl: 'https://www.amazon.in/dp/178633089X',
+  },
+  {
+    title: 'The Psychology of Money',
+    author: 'Morgan Housel',
+    category: 'Nonfiction',
+    description: 'Short lessons explore how behavior, history, patience, and personal experience shape decisions about money.',
+    readIf: 'You are curious about the human side of saving, spending, risk, and wealth.',
+    amazonUrl: 'https://www.amazon.in/dp/9390166268',
+  },
+];
+
 export const BOOK_METADATA = {
   title: "Love, Loss and Life",
   author: "Yogesh Bhavsar",

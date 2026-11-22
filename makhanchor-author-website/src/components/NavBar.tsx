@@ -32,6 +32,7 @@ export default function NavBar({ activeTab, setActiveTab, onGetBook, onReadFirst
     { label: 'About', id: 'about' },
     { label: 'The Novel', id: 'books' },
     { label: 'Poetry', id: 'poetry' },
+    { label: 'Reading Shelf', id: 'shelf' },
     { label: 'Blog', id: 'blog' },
     { label: 'Reviews', id: 'reviews' },
     { label: 'Reels', id: 'reels' },
@@ -40,6 +41,7 @@ export default function NavBar({ activeTab, setActiveTab, onGetBook, onReadFirst
   const desktopNavLinks = [
     { label: 'The Novel', id: 'books' },
     { label: 'Poetry', id: 'poetry' },
+    { label: 'Reading Shelf', id: 'shelf' },
     { label: 'Blog', id: 'blog' },
     { label: 'Reviews', id: 'reviews' },
   ];

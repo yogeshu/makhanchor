@@ -289,6 +289,14 @@ async function startServer() {
           "Meet Yogesh Bhavsar (Makhanchor), a poet and novelist writing novels and words to map the silent architecture of the human heart, unrequited love, and emotional healing.",
           "https://www.makhanchor.in/about"
         );
+      } else if (url === "/the-shelf" || url === "/the-shelf/" || url.startsWith("/the-shelf?")) {
+        html = injectPageMeta(
+          html,
+          "Fiction and Nonfiction Reading Shelf | Makhanchor",
+          "Browse a Makhanchor reading shelf of fiction about second chances and relationships, plus nonfiction about habits, purpose, money, and daily life.",
+          "https://www.makhanchor.in/the-shelf/",
+          true
+        );
       }
 
       res.status(200).set({ "Content-Type": "text/html" }).end(html);
@@ -305,7 +313,7 @@ async function startServer() {
   });
 }
 
-function replaceMetaTags(html: string, title: string, description: string, url: string, image?: string, type = "website"): string {
+function replaceMetaTags(html: string, title: string, description: string, url: string, image?: string, type = "website", noindex = false): string {
   let result = html;
   
   // Replace Title
@@ -330,6 +338,8 @@ function replaceMetaTags(html: string, title: string, description: string, url: 
     result = result.replace(/<meta name="twitter:image" content=".*?"\s*\/?>/g, `<meta name="twitter:image" content="${image}" />`);
   }
   result = result.replace(/<meta name="twitter:url" content=".*?"\s*\/?>/g, `<meta name="twitter:url" content="${url}" />`);
+  result = result.replace(/<link rel="canonical" href=".*?"\s*\/?>/g, `<link rel="canonical" href="${url}" />`);
+  result = result.replace(/<meta name="robots" content=".*?"\s*\/?>/g, `<meta name="robots" content="${noindex ? 'noindex,follow' : 'index,follow'}" />`);
 
   return result;
 }
@@ -342,9 +352,9 @@ function injectBlogMeta(html: string, blog: any): string {
   return replaceMetaTags(html, displayTitle, displayDesc, currentUrl, displayImage, "article");
 }
 
-function injectPageMeta(html: string, title: string, description: string, url: string): string {
+function injectPageMeta(html: string, title: string, description: string, url: string, noindex = false): string {
   const defaultImage = "https://images.unsplash.com/photo-1518156677180-95a2893f3e9f?auto=format&fit=crop&w=1200&h=630&q=80";
-  return replaceMetaTags(html, title, description, url, defaultImage, "website");
+  return replaceMetaTags(html, title, description, url, defaultImage, "website", noindex);
 }
 
 startServer();

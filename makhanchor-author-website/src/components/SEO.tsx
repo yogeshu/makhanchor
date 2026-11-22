@@ -31,6 +31,9 @@ export default function SEO({ title, description, activeBlog, activeTab }: SEOPr
     } else if (pathname === '/blog') {
       displayTitle = 'Midnight Whispers Blog | Makhanchor';
       displayDesc = 'Read the latest essays, poetry, and stories on unrequited love, midnight loneliness, and healing by Makhanchor (Yogesh Bhavsar).';
+    } else if (pathname === '/the-shelf' || pathname === '/the-shelf/') {
+      displayTitle = 'Fiction and Nonfiction Reading Shelf | Makhanchor';
+      displayDesc = 'Browse a Makhanchor reading shelf of fiction about second chances and relationships, plus nonfiction about habits, purpose, money, and daily life.';
     } else if (title) {
       displayTitle = `${title} | Makhanchor`;
       if (description) displayDesc = description;
@@ -94,7 +97,7 @@ export default function SEO({ title, description, activeBlog, activeTab }: SEOPr
     canonicalLink.setAttribute('href', currentUrl);
 
     // Ensure robots meta exists
-    updateMetaTag('name', 'robots', 'index,follow');
+    updateMetaTag('name', 'robots', pathname === '/the-shelf' || pathname === '/the-shelf/' ? 'noindex,follow' : 'index,follow');
 
     // 3. Inject JSON-LD Schema
     const oldSchemas = document.querySelectorAll('script[type="application/ld+json"]');
